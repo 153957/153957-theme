@@ -144,37 +144,6 @@
     });
     Galleria.run("#gallery");
 
-    {% if settings.show_map and album.show_map %}
-    function galleryMapToggle() {
-        /* Make sure the map is loaded */
-        init_map();
-
-        var stage = $(".galleria-stage");
-        var mapdiv = $("#galleria-map");
-        var icons = $(".icons");
-
-        if (stage.attr.hidden == true) {
-            stage.attr.hidden = false;
-            $(".galleria-info-link").show();
-            mapdiv.hide();
-            stage.css("opacity", "1");
-            icons.css("background-color", "inherit");
-            /* Change display of the Map link */
-            $(".gallery-map-toggle img")[0].src = "{{ theme.url }}/img/map.png";
-        } else {
-            stage.attr.hidden = true;
-            $(".galleria-info-link").hide();
-            mapdiv.show();
-            /* Play with the stage opacity otherwise galleria will go mad */
-            stage.css("opacity", "0");
-            icons.css("background-color", "#333");
-            /* Change display of the Map link */
-            $(".gallery-map-toggle img")[0].src = "{{ theme.url }}/img/photo.png";
-        }
-    }
-    $(".gallery-map-toggle").click(galleryMapToggle);
-    {% endif %}
-
     Galleria.ready(function() {
         this.attachKeyboard({
             right: this.next,
@@ -190,16 +159,6 @@
         });
 
         $('.icons').appendTo(this.$('container'));
-
-        {% if settings.show_map and album.show_map %}
-        this.bind('loadfinish', function(e) {
-            init_map();
-            if (selected != e.index) {
-                selectMarker(features[e.index]);
-                selected = e.index;
-            }
-        });
-        {% endif %}
      });
 
     </script>
