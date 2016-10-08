@@ -67,7 +67,7 @@
               {% if media.exif.exposure %}Exposure: {{ media.exif.exposure }}, {% endif %}
               {% if media.exif.fstop %}Fstop: {{ media.exif.fstop }}{% endif %}
               {% if media.exif.gps %}
-                <br/>Location: <a href='https://www.openstreetmap.org/?mlat={{
+                <br>Location: <a href='https://www.openstreetmap.org/?mlat={{
                 media.exif.gps.lat }}&amp;mlon={{ media.exif.gps.lon}}&amp;zoom=12&amp;layers=M' target='_blank' class='map'
                 >{{ 'N{:.6f}'.format(media.exif.gps.lat) if media.exif.gps.lat > 0 else 'S{:.6f}'.format(-media.exif.gps.lat) }}
                  {{ 'E{:.6f}'.format(media.exif.gps.lon) if media.exif.gps.lon > 0 else 'W{:.6f}'.format(-media.exif.gps.lon) }}</a>
@@ -135,31 +135,32 @@
     <script>
 
     Galleria.configure({
-        imageCrop: false,
-        transition: null,
-        clicknext: true,
-        showCounter: false,
-        showInfo: false,
-        transitionSpeed: 0,
+      imageCrop: false,
+      transition: null,
+      clicknext: true,
+      showCounter: false,
+      showInfo: false,
+      transitionSpeed: 0,
     });
+
     Galleria.run("#gallery");
 
     Galleria.ready(function() {
-        this.attachKeyboard({
-            right: this.next,
-            left: this.prev,
-            up: function() {this.show(0);},
-            /* Toggle fullscreen display on press of 'f' key */
-            0x46: this.toggleFullscreen,
-        });
+      this.attachKeyboard({
+        right: this.next,
+        left: this.prev,
+        up: function() {this.show(0);},
+        /* Toggle fullscreen display on press of 'f' key */
+        0x46: this.toggleFullscreen,
+      });
 
-        var gallery = this;
-        $('#fullscreen').click(function() {
-          gallery.toggleFullscreen();
-        });
+      var gallery = this;
+      $('#fullscreen').click(function() {
+        gallery.toggleFullscreen();
+      });
 
-        $('.icons').appendTo(this.$('container'));
-     });
+      $('.icons').appendTo(this.$('container'));
+    });
 
     </script>
     {% endif %}
