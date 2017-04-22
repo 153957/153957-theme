@@ -113,6 +113,10 @@ header h1 a:hover, header h2 a:hover {
   margin: 0 auto;
 }
 
+#gallery .galleria-thumbnails .galleria-image {
+    margin: 0 5px 0 0;
+}
+
 .icons {
   bottom: 10px;
   left: 20px;
