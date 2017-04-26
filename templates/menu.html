@@ -1,0 +1,10 @@
+{% if album.albums %}
+  <ul>
+    {% for subalbum in album.albums %}
+      <li class="album_title"><a href="{{ parent+subalbum.url }}">{{ subalbum.title }}</a>
+      {% with album=subalbum, parent=parent+subalbum.url %}
+        {% include './menu.html' %}
+      {% endwith %}
+    {% endfor %}
+  </ul>
+{% endif %}
