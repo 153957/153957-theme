@@ -130,14 +130,6 @@ header h1 a:hover, header h2 a:hover {
   opacity: .5;
 }
 
-.album_title {
-  display: block;
-  color: #eeeeee;
-  font-size: 1.3em;
-  font-variant: small-caps;
-  font-weight: bold;
-}
-
 /* galleria */
 #gallery {
   line-height: 0;
@@ -156,8 +148,12 @@ header h1 a:hover, header h2 a:hover {
   max-height: inherit;
 }
 
+#gallery .galleria-thumbnails .active {
+  border-bottom: 2x solid light-gray;
+}
+
 #gallery .galleria-thumbnails .galleria-image {
-    margin: 0 5px 0 0;
+  margin: 0 5px 0 0;
 }
 
 .icons {
