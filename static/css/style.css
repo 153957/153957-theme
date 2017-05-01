@@ -134,7 +134,7 @@ header h1 a:hover, header h2 a:hover {
 #gallery {
   line-height: 0;
   flex: 1;
-  max-height: 900px;
+  max-height: 99vh;
   min-width: 250px;
   clear: both;
 }
