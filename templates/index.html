@@ -18,10 +18,11 @@
     <div class="container">
       <div id="main" role="main">
 
-        {% if album.albums %}
+        {% if album.gallery.full_tree %}
         <div class="menu">
-            {% set parent = '' %}
+          {% with albums=album.gallery.full_tree %}
             {% include './menu.html' %}
+          {% endwith %}
         </div>
         {% endif %}
 

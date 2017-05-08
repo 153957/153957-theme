@@ -1,8 +1,8 @@
-{% if album.albums %}
+{% if albums %}
   <ul>
-    {% for subalbum in album.albums %}
-      <li class="album_title"><a href="{{ parent+subalbum.url }}">{{ subalbum.title }}</a>
-      {% with album=subalbum, parent=parent+subalbum.url %}
+    {% for name, album_dict in albums.items() %}
+      <li class="album_title"><a href="{{album.path_to_root}}{{ album_dict.self.path_from_root }}">{{ album_dict.self.title }}</a>
+      {% with albums=album_dict.subalbums %}
         {% include './menu.html' %}
       {% endwith %}
     {% endfor %}
