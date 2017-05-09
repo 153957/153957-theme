@@ -137,18 +137,22 @@ header h1 a:hover, header h2 a:hover {
 }
 
 #gallery .galleria-thumbnails .galleria-image {
+  height: 70px;
   margin: 0 3px 0 0;
 }
 
+#gallery .galleria-theme-classic {
+  background-color: transparent;
+}
+
 #gallery .galleria-stage {
-    background-color: transparent;
-    top: 80px;
-    bottom: 0;
+  top: 80px;
+  bottom: 0;
 }
 
 #gallery .galleria-thumbnails-container {
-    top: 0;
-    bottom: auto;
+  top: 0;
+  bottom: auto;
 }
 
 .icons {
