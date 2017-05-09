@@ -142,6 +142,13 @@ header h1 a:hover, header h2 a:hover {
 
 #gallery .galleria-stage {
     background-color: transparent;
+    top: 80px;
+    bottom: 0;
+}
+
+#gallery .galleria-thumbnails-container {
+    top: 0;
+    bottom: auto;
 }
 
 .icons {
