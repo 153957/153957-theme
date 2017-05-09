@@ -1,7 +1,7 @@
 body {
   margin: 1px;
-  background-color: #242424;
-  color: #aaaaaa;
+  background-color: #fff;
+  color: #222;
 }
 
 .container {
@@ -11,12 +11,12 @@ body {
 }
 
 a, a:link, a:visited {
-  color: #999999;
+  color: #222;
   text-decoration: underline;
 }
 
 a:hover {
-  color: #dadada;
+  color: #000;
 }
 
 /* header */
@@ -25,17 +25,14 @@ header {
   color: #eeeeee;
 }
 header h1, header h2 {
-  color: #eeeeee;
   margin: 10px 0;
 }
 header h1 a, header h1 a:link, header h1 a:visited,
 header h2 a, header h2 a:link, header h2 a:visited {
-  color: #eeeeee;
   text-shadow: 0 2px 0 #000;
   text-decoration: none;
 }
 header h1 a:hover, header h2 a:hover {
-  color: #fff;
   text-decoration: none;
 }
 
@@ -73,11 +70,11 @@ header h1 a:hover, header h2 a:hover {
 .menu a:visited {
   text-decoration: none;
   display: block;
-  color: #eeeeee;
+  color: #333;
 }
 
 .menu a:hover {
-  color: #ffffff;
+  color: #3993C2;
 }
 
 .menu .author {
@@ -141,6 +138,10 @@ header h1 a:hover, header h2 a:hover {
 
 #gallery .galleria-thumbnails .galleria-image {
   margin: 0 3px 0 0;
+}
+
+#gallery .galleria-stage {
+    background-color: transparent;
 }
 
 .icons {
