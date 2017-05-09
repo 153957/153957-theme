@@ -48,6 +48,9 @@ header h1 a:hover, header h2 a:hover {
   font-variant: all-small-caps;
   font-weight: bold;
   font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .menu ul {
@@ -78,25 +81,9 @@ header h1 a:hover, header h2 a:hover {
   color: #ffffff;
 }
 
-#menu ul {
-  list-style-type: none;
-  margin: 0 0 10px;
-  padding: 0;
-}
-#menu ul li {
-  display: inline-block;
-}
-#menu ul li a, #menu ul li a:link, #menu ul li a:visited {
-  color: #aaaaaa;
-  border-bottom: 1px solid #aaaaaa;
-  padding-bottom: 2px;
-  margin-left: 5px;
-  text-decoration: none;
-}
-#menu ul li a:hover {
-  color: #eeeeee;
-  border-color: #eeeeee;
-  text-decoration: none;
+.menu .author {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /* gallery */
@@ -173,21 +160,4 @@ header h1 a:hover, header h2 a:hover {
 }
 .icons img:hover {
   opacity: .9;
-}
-
-/* footer */
-footer {
-  font-size: 14px;
-  clear: both;
-  display: block;
-  margin: 1em 0;
-  text-align: center;
-}
-footer a:link, footer a:visited {
-  font-weight: bold;
-  text-decoration: none;
-}
-footer a:hover {
-  border-bottom: 1px solid;
-  text-decoration: none;
 }

@@ -23,6 +23,7 @@
           {% with albums=album.gallery.full_tree %}
             {% include './menu.html' %}
           {% endwith %}
+          <p class="author">{% if album.author %}<a href="http://arne.delaat.net/">{{ album.author }}</a>{% endif %}</p>
         </div>
         {% endif %}
 
@@ -67,9 +68,6 @@
 
       </div>
 
-      <footer>
-        <p>{% if album.author %}<a href="http://arne.delaat.net/">{{ album.author }}</a>{% endif %}</p>
-      </footer>
     </div>
 
     {% if album.medias %}
