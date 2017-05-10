@@ -135,9 +135,8 @@ header h1 a:hover, header h2 a:hover {
 #gallery .galleria-thumbnails .galleria-image {
   height: 70px;
   margin: 0 3px 0 0;
-  background: transparent;
   border: none;
-  border-bottom: 3px solid transparent;
+  border-bottom: 3px solid #fff;
 }
 
 #gallery .galleria-thumbnails .galleria-image img {
