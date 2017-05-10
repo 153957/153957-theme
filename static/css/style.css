@@ -132,13 +132,25 @@ header h1 a:hover, header h2 a:hover {
   max-height: inherit;
 }
 
-#gallery .galleria-thumbnails .active {
-  border-bottom: 2x solid light-gray;
-}
-
 #gallery .galleria-thumbnails .galleria-image {
   height: 70px;
   margin: 0 3px 0 0;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+}
+
+#gallery .galleria-thumbnails .galleria-image img {
+  opacity: .9 !important;
+}
+
+#gallery .galleria-thumbnails .galleria-image img:hover,
+#gallery .galleria-thumbnails .galleria-image.active img {
+  opacity: 1 !important;
+}
+
+#gallery .galleria-thumbnails .galleria-image.active {
+  border-bottom: 3px solid #3993C2;
 }
 
 #gallery .galleria-theme-classic {
