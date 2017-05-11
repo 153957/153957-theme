@@ -167,19 +167,23 @@ header h1 a:hover, header h2 a:hover {
 }
 
 .icons {
-  bottom: 10px;
-  left: 20px;
-  padding: 5px;
+  bottom: 5px;
+  right: 5px;
+  padding: 0;
   z-index: 2;
   position: absolute;
   text-align: right;
 }
+
 .icons a {
+  display: block;
   cursor: pointer;
+  background-image: url('../img/fullscreen.svg');
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+  opacity: 0.6;
 }
-.icons img {
-  opacity: .6;
-}
-.icons img:hover {
-  opacity: .9;
+.icons a:hover {
+  opacity: 0.9;
 }
