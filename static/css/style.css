@@ -153,7 +153,7 @@ header h1 a:hover, header h2 a:hover {
 }
 
 #gallery .galleria-theme-classic {
-  background-color: transparent;
+  background-color: #fff;
 }
 
 #gallery .galleria-stage {
