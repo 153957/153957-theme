@@ -79,8 +79,8 @@ header h1 a:hover, header h2 a:hover {
 }
 
 .menu .author {
-    margin-top: 5px;
-    margin-bottom: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 /* gallery */
@@ -168,12 +168,18 @@ header h1 a:hover, header h2 a:hover {
 }
 
 .icons {
-  bottom: 5px;
-  right: 5px;
-  padding: 0;
+  bottom: 0;
+  right: 0;
+  padding: 3px;
   z-index: 2;
   position: absolute;
   text-align: right;
+  background-color: #fff;
+  border-radius: 3px;
+  opacity: 0.6;
+}
+.icons:hover {
+  opacity: 0.9;
 }
 
 .icons a {
@@ -183,8 +189,4 @@ header h1 a:hover, header h2 a:hover {
   background-repeat: no-repeat;
   width: 15px;
   height: 15px;
-  opacity: 0.6;
-}
-.icons a:hover {
-  opacity: 0.9;
 }
