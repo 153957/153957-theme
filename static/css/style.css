@@ -131,6 +131,12 @@ header h1 a:hover, header h2 a:hover {
 
 #gallery .galleria-container {
   max-height: inherit;
+  background-color: #fff;
+}
+
+#gallery .galleria-thumbnails-container {
+  top: 0;
+  bottom: auto;
 }
 
 #gallery .galleria-thumbnails .galleria-image {
@@ -153,18 +159,14 @@ header h1 a:hover, header h2 a:hover {
   border-bottom: 3px solid #3993C2;
 }
 
-#gallery .galleria-theme-classic {
-  background-color: #fff;
+#gallery .galleria-container.notouch .galleria-thumb-nav-left:hover,
+#gallery .galleria-container.notouch .galleria-thumb-nav-right:hover {
+  background-color: transparent;
 }
 
 #gallery .galleria-stage {
   top: 80px;
   bottom: 0;
-}
-
-#gallery .galleria-thumbnails-container {
-  top: 0;
-  bottom: auto;
 }
 
 .icons {
