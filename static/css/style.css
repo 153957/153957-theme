@@ -73,7 +73,8 @@ header h1 a:hover, header h2 a:hover {
   color: #333;
 }
 
-.menu a:hover {
+.menu a:hover,
+.menu .current > a {
   color: #3993C2;
 }
 
