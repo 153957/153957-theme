@@ -34,7 +34,6 @@ def full_tree(gallery):
     """full menu tree"""
 
     sorted_tree = sorted(gallery.albums.items(), key=operator.itemgetter(0))
-    print(sorted_tree)
 
     gallery.full_tree = OrderedDict()
 
@@ -42,7 +41,6 @@ def full_tree(gallery):
         if name == '.':
             continue
         ancestors = album.path.split('/')[:-1]
-        print(ancestors)
         current_ancestor = gallery.full_tree
         for ancestor in ancestors:
             current_ancestor = current_ancestor[ancestor]['subalbums']
