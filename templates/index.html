@@ -20,10 +20,10 @@
 
         {% if album.gallery.full_tree %}
         <div class="menu">
+          <p class="author">{% if album.author %}<a href="http://arne.delaat.net/">{{ album.author }}</a>{% endif %}</p>
           {% with albums=album.gallery.full_tree, depth=0 %}
             {% include './menu.html' %}
           {% endwith %}
-          <p class="author">{% if album.author %}<a href="http://arne.delaat.net/">{{ album.author }}</a>{% endif %}</p>
         </div>
         {% endif %}
 

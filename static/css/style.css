@@ -47,7 +47,7 @@ header h1 a:hover, header h2 a:hover {
   line-height: 17px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .menu ul {
@@ -78,6 +78,7 @@ header h1 a:hover, header h2 a:hover {
 }
 
 .menu .author {
+  font-size: 12px;
   margin-top: 5px;
   margin-bottom: 5px;
 }
