@@ -83,6 +83,22 @@ header h1 a:hover, header h2 a:hover {
   margin-bottom: 5px;
 }
 
+@media (pointer: coarse) {
+  .menu {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .menu ul ul ul ul ul {
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .menu .author {
+    font-size: 16px;
+  }
+}
+
 /* gallery */
 #albums ul {
   list-style-type: none;
