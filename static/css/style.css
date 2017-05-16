@@ -10,7 +10,9 @@ body {
   width: 99%;
 }
 
-a, a:link, a:visited {
+a,
+a:link,
+a:visited {
   color: #222;
   text-decoration: underline;
 }
@@ -24,15 +26,21 @@ header {
   padding: 1em 0;
   color: #eeeeee;
 }
-header h1, header h2 {
+header h1,
+header h2 {
   margin: 10px 0;
 }
-header h1 a, header h1 a:link, header h1 a:visited,
-header h2 a, header h2 a:link, header h2 a:visited {
+header h1 a,
+header h1 a:link,
+header h1 a:visited,
+header h2 a,
+header h2 a:link,
+header h2 a:visited {
   text-shadow: 0 2px 0 #000;
   text-decoration: none;
 }
-header h1 a:hover, header h2 a:hover {
+header h1 a:hover,
+header h2 a:hover {
   text-decoration: none;
 }
 
