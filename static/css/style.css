@@ -26,28 +26,6 @@ a:hover {
   color: #000;
 }
 
-/* header */
-header {
-  padding: 1em 0;
-  color: #eeeeee;
-}
-header h1,
-header h2 {
-  margin: 10px 0;
-}
-header h1 a,
-header h1 a:link,
-header h1 a:visited,
-header h2 a,
-header h2 a:link,
-header h2 a:visited {
-  text-shadow: 0 2px 0 #000;
-  text-decoration: none;
-}
-header h1 a:hover,
-header h2 a:hover {
-  text-decoration: none;
-}
 
 .menu {
   font-weight: normal;
@@ -107,35 +85,8 @@ header h2 a:hover {
   }
 }
 
-/* gallery */
-#albums ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-#albums ul li {
+#gallery > a {
   display: inline-block;
-  margin: 0 20px 30px 0;
-  text-align: center;
-  vertical-align: top;
-  width: 280px;
-}
-/*
-#albums ul li:nth-child(3n+3) {
-  margin-right: 0;
-}
- */
-#albums ul li a img {
-  opacity: 1;
-  -webkit-transition: opacity 0.2s ease-in;
-  -moz-transition-property: opacity;
-  -moz-transition-duration: 0.2s;
-  -moz-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-  -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-  -o-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
-}
-#albums ul li a:hover img {
-  opacity: .5;
 }
 
 /* galleria */
