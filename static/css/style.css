@@ -75,6 +75,16 @@ a:hover {
     line-height: 30px;
   }
 
+  .menu li {
+    display: none;
+  }
+
+  .menu li.current > ul > li, /* children */
+  .menu ul.current_siblings > li, /* siblings and self */
+  .menu li.current_ancestor { /* ancestors */
+    display: list-item;
+  }
+
   .menu ul ul ul ul ul {
     font-size: 18px;
     line-height: 26px;
@@ -121,6 +131,20 @@ a:hover {
 #gallery .galleria-stage {
   top: 80px;
   bottom: 0;
+}
+
+@media (pointer: coarse) {
+  #gallery .galleria-theme-classic .galleria-thumbnails-container,
+  #gallery .galleria-theme-classic .galleria-thumb-nav-left,
+  #gallery .galleria-theme-classic .galleria-thumb-nav-right,
+  #gallery .galleria-thumbnails .galleria-image {
+    height: 45px;
+  }
+
+  #gallery .galleria-stage {
+    top: 55px;
+    bottom: 0;
+  }
 }
 
 #gallery .galleria-thumbnails .galleria-image {
