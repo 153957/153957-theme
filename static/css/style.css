@@ -26,6 +26,7 @@ a:hover {
   color: #000;
 }
 
+/* albums menu */
 
 .menu {
   font-weight: normal;
@@ -95,8 +96,14 @@ a:hover {
   }
 }
 
+/* no js */
+
 #gallery > a {
   display: inline-block;
+}
+
+#gallery > a > img {
+  padding: 5px;
 }
 
 /* galleria */
