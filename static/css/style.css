@@ -10,6 +10,11 @@ body {
   width: 99%;
 }
 
+#main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 a,
 a:link,
 a:visited {
@@ -42,11 +47,6 @@ header h2 a:visited {
 header h1 a:hover,
 header h2 a:hover {
   text-decoration: none;
-}
-
-#main {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .menu {
@@ -165,6 +165,14 @@ header h2 a:hover {
 
 #gallery .galleria-thumbnails .galleria-image {
   height: 70px;
+}
+
+#gallery .galleria-stage {
+  top: 80px;
+  bottom: 0;
+}
+
+#gallery .galleria-thumbnails .galleria-image {
   margin: 0 3px 0 0;
   border: none;
   border-bottom: 3px solid #fff;
@@ -188,10 +196,7 @@ header h2 a:hover {
   background-color: transparent;
 }
 
-#gallery .galleria-stage {
-  top: 80px;
-  bottom: 0;
-}
+/* fullscreen icon */
 
 .icons {
   bottom: 0;
