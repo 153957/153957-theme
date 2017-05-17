@@ -124,6 +124,9 @@ a:hover {
   bottom: auto;
 }
 
+#gallery .galleria-theme-classic .galleria-thumbnails-container,
+#gallery .galleria-theme-classic .galleria-thumb-nav-left,
+#gallery .galleria-theme-classic .galleria-thumb-nav-right,
 #gallery .galleria-thumbnails .galleria-image {
   height: 70px;
 }
