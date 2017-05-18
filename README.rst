@@ -1,14 +1,16 @@
-# Photo gallery template
+Photo gallery template
+----------------------
 
 Web photo gallery template adapted to my personal preferences.
 
 
-## Sources
+Sources
+-------
 
-Based on [sigal](http://sigal.saimon.org/) version of Galleria theme, which is
+Based on `sigal <http://sigal.saimon.org/>`_ version of Galleria theme, which is
 distributed under the MIT License.
 
-Theme based on [Galleria Classic](http://galleria.io/), which is distributed under
+Theme based on `Galleria Classic <http://galleria.io/>`_, which is distributed under
 the MIT License.
 
 Additional icons (map, fullscreen) come from the Font Awesome project
