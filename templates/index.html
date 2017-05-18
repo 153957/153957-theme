@@ -16,86 +16,32 @@
   </head>
   <body>
     <div class="container">
-      <header>
-        <h1><a href="{{ album.index_url }}">{{ index_title }}</a></h1>
-
-        {% if settings.links %}
-        <nav id="menu">
-          <ul>
-            {% for title, link in settings.links %}
-            <li><a href="{{ link }}">{{ title }}</a></li>
-            {% endfor %}
-          </ul>
-        </nav>
-        {% endif %}
-
-        {% if album.breadcrumb %}
-        <h2>
-          {%- for url, title in album.breadcrumb -%}
-          <a href="{{ url }}">{{ title }}</a>
-          {%- if not loop.last %} » {% endif -%}
-          {% endfor -%}
-        </h2>
-        <hr>
-        {% endif %}
-      </header>
-
       <div id="main" role="main">
-        {% if album.albums %}
-        <div id="albums">
-          <!-- <h1>Albums</h1> -->
-          <ul>
-            {% for alb in album.albums %}
-            <li><a href="{{ alb.url }}">
-              <img src="{{ alb.thumbnail }}" class="album_thumb" alt="{{ alb.name }}" title="{{ alb.name }}" /></a>
-              <span class="album_title">{{ alb.title }}</span>
-            </li>
-            {% endfor %}
-          </ul>
+
+        {% if album.gallery.full_tree %}
+        <div class="menu">
+          <p class="author">{% if album.author %}<a href="http://arne.delaat.net/">{{ album.author }}</a>{% endif %}</p>
+          {% with albums=album.gallery.full_tree, depth=0 %}
+            {% include './menu.html' %}
+          {% endwith %}
         </div>
         {% endif %}
 
         {% if album.medias %}
-          {% macro img_description(media) -%}
-            {%- if media.big %}<a href='{{ media.big }}'>Full size</a>{% endif %}
-            {% if media.description %}<br>{{ media.description }}{% endif %}
-
-            {%- if media.exif %}
-              <br>
-              {% if media.exif.iso %}ISO: {{ media.exif.iso }}, {% endif %}
-              {% if media.exif.focal %}Focal: {{ media.exif.focal }}, {% endif %}
-              {% if media.exif.exposure %}Exposure: {{ media.exif.exposure }}, {% endif %}
-              {% if media.exif.fstop %}Fstop: {{ media.exif.fstop }}{% endif %}
-              {% if media.exif.gps %}
-                <br>Location: <a href='https://www.openstreetmap.org/?mlat={{
-                media.exif.gps.lat }}&amp;mlon={{ media.exif.gps.lon}}&amp;zoom=12&amp;layers=M' target='_blank' class='map'
-                >{{ 'N{:.6f}'.format(media.exif.gps.lat) if media.exif.gps.lat > 0 else 'S{:.6f}'.format(-media.exif.gps.lat) }}
-                 {{ 'E{:.6f}'.format(media.exif.gps.lon) if media.exif.gps.lon > 0 else 'W{:.6f}'.format(-media.exif.gps.lon) }}</a>
-              {% endif %}
-              {% if media.exif.datetime %}
-                <br>Date: {{ media.exif.datetime }}
-              {% endif %}
-            {% endif %}
-          {%- endmacro %}
         <div class="icons">
-          <a id="fullscreen"><img src="{{ theme.url }}/img/fullscreen.png"
-            title="Fullscreen" alt="Fullscreen" /></a>
+          <a id="fullscreen"></a>
         </div>
         <div id="gallery">
           {% for media in album.medias %}
-            {% if media.type == "image" %}
-              <a href="{{ media.filename }}">
-                <img src="{{ media.thumbnail }}" alt="{{ media.filename }}"
-                    data-title="{{ media.title if media.title else media.filename }}"
-                    data-description="{{ img_description(media) }}"
-                    {% if media.big %} data-big="{{ media.big }}"{% endif %} />
-              </a>
-            {% endif %}
+            {% if media.type == "image" -%}
+              <a
+                  href="{{ media.filename }}"><img src="{{ media.thumbnail }}" alt="{{ media.title if media.title else media.filename }}  {{ media.exif.dateobj }}" /></a
+              >
+            {%- endif %}
             {% if media.type == "video" %}
               <a href="{{ theme.url }}/img/empty.png">
                 <img src="{{ media.thumbnail }}" alt="{{ media.filename }}"
                     data-title="{{ media.title if media.title else media.filename }}"
-                    data-description="{{ img_description(media) }}"
                     data-layer="<video controls>
                                   <source src='{{ media.filename }}' type='{{ media.mime }}' />
                                 </video>" />
@@ -119,16 +65,14 @@
           {{ album.description }}
         </div>
         {% endif %}
+
       </div>
 
-      <footer>
-        <p>{% if album.author %}<a href="http://arne.delaat.net/">{{ album.author }}</a>{% endif %}</p>
-      </footer>
     </div>
 
     {% if album.medias %}
-    <script src="{{ theme.url }}/js/jquery-1.11.1.min.js"></script>
-    <script src="{{ theme.url }}/js/galleria-1.4.2.min.js"></script>
+    <script src="{{ theme.url }}/js/jquery-3.2.1.min.js"></script>
+    <script src="{{ theme.url }}/js/galleria.min.js"></script>
     <script src="{{ theme.url }}/js/galleria.classic.min.js"></script>
     <script src="{{ theme.url }}/js/galleria.history.min.js"></script>
     <script>
@@ -140,8 +84,9 @@
       showCounter: false,
       showInfo: false,
       transitionSpeed: 0,
-      carouselSpeed: 0
-    });
+      carouselSpeed: 0,
+      height: 0.9,
+     });
 
     Galleria.run("#gallery");
 
