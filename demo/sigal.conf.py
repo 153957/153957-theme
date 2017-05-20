@@ -7,7 +7,7 @@
 
 source = 'source'
 destination = 'output'
-theme = ''
+theme = ''  # theme is automatically set by the theme plugin.
 author = '153957 Photography'
 use_orig = True
 
