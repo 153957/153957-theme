@@ -114,6 +114,7 @@ a:hover {
   min-width: 250px;
   clear: both;
 }
+
 #gallery video {
   position: absolute;
   top: 10%;
@@ -202,6 +203,7 @@ a:hover {
   border-radius: 3px;
   opacity: 0.6;
 }
+
 .icons:hover {
   opacity: 0.9;
 }
