@@ -77,37 +77,35 @@
     <script src="{{ theme.url }}/js/galleria.classic.min.js"></script>
     <script src="{{ theme.url }}/js/galleria.history.min.js"></script>
     <script>
-
-    Galleria.configure({
-      imageCrop: false,
-      transition: null,
-      clicknext: true,
-      showCounter: false,
-      showInfo: false,
-      transitionSpeed: 0,
-      carouselSpeed: 0,
-      height: 0.9,
-     });
-
-    Galleria.run("#gallery");
-
-    Galleria.ready(function() {
-      this.attachKeyboard({
-        right: this.next,
-        left: this.prev,
-        up: function() {this.show(0);},
-        /* Toggle fullscreen display on press of 'f' key */
-        0x46: this.toggleFullscreen,
+      Galleria.configure({
+        imageCrop: false,
+        transition: null,
+        clicknext: true,
+        showCounter: false,
+        showInfo: false,
+        transitionSpeed: 0,
+        carouselSpeed: 0,
+        height: 0.9,
+       });
+  
+      Galleria.run("#gallery");
+  
+      Galleria.ready(function() {
+        this.attachKeyboard({
+          right: this.next,
+          left: this.prev,
+          up: function() {this.show(0);},
+          /* Toggle fullscreen display on press of 'f' key */
+          0x46: this.toggleFullscreen,
+        });
+  
+        var gallery = this;
+        $('#fullscreen').click(function() {
+          gallery.toggleFullscreen();
+        });
+  
+        $('.icons').appendTo(this.$('container'));
       });
-
-      var gallery = this;
-      $('#fullscreen').click(function() {
-        gallery.toggleFullscreen();
-      });
-
-      $('.icons').appendTo(this.$('container'));
-    });
-
     </script>
     {% endif %}
   </body>
