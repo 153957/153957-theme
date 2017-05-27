@@ -98,11 +98,11 @@ a:hover {
 
 /* no js */
 
-.galleria-container.galleria-theme-classic > a {
+#gallery > a {
   display: inline-block;
 }
 
-.galleria-container.galleria-theme-classic > a > img {
+#gallery > a > img {
   padding: 5px;
 }
 
