@@ -20,7 +20,9 @@
 
         {% if album.gallery.full_tree %}
         <div class="menu">
-          <p class="author">{% if album.author %}<a href="http://arne.delaat.net/">{{ album.author }}</a>{% endif %}</p>
+          {% if album.author %}
+            <p class="author"><a href="{{ album.settings.author_link or album.path_to_root }}">{{ album.author }}</a></p>
+          {% endif %}
           {% with albums=album.gallery.full_tree, depth=0 %}
             {% include './menu.html' %}
           {% endwith %}
@@ -35,13 +37,13 @@
           {% for media in album.medias %}
             {% if media.type == "image" -%}
               <a
-                  href="{{ media.filename }}"><img src="{{ media.thumbnail }}" alt="{{ media.title if media.title else media.filename }}  {{ media.exif.dateobj }}" /></a
+                  href="{{ media.filename }}"><img src="{{ media.thumbnail }}" alt="{{ media.title or media.filename }}  {{ media.exif.dateobj }}" /></a
               >
             {%- endif %}
             {% if media.type == "video" %}
               <a href="{{ theme.url }}/img/empty.png">
                 <img src="{{ media.thumbnail }}" alt="{{ media.filename }}"
-                    data-title="{{ media.title if media.title else media.filename }}"
+                    data-title="{{ media.title or media.filename }}"
                     data-layer="<video controls>
                                   <source src='{{ media.filename }}' type='{{ media.mime }}' />
                                 </video>" />
