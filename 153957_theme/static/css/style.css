@@ -64,7 +64,7 @@ a:hover {
   color: #3993C2;
 }
 
-.menu .author {
+.menu .title {
   font-size: 12px;
   margin-top: 5px;
   margin-bottom: 5px;
@@ -91,7 +91,7 @@ a:hover {
     line-height: 26px;
   }
 
-  .menu .author {
+  .menu .title {
     font-size: 16px;
   }
 }

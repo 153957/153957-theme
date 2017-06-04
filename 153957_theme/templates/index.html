@@ -21,8 +21,10 @@
 
         {% if album.gallery.full_tree %}
         <div class="menu">
-          {% if album.author %}
-            <p class="author"><a href="{{ album.settings.author_link or album.path_to_root }}">{{ album.author }}</a></p>
+          {% if album.gallery.title %}
+            <p class="title">
+                <a href="{{ album.path_to_root }}">{{ album.gallery.title }}</a>
+            </p>
           {% endif %}
           {% with albums=album.gallery.full_tree, depth=0 %}
             {% include './menu.html' %}
@@ -88,9 +90,9 @@
         carouselSpeed: 0,
         height: 0.9,
        });
-  
+
       Galleria.run("#gallery");
-  
+
       Galleria.ready(function() {
         this.attachKeyboard({
           right: this.next,
@@ -99,12 +101,12 @@
           /* Toggle fullscreen display on press of 'f' key */
           0x46: this.toggleFullscreen,
         });
-  
+
         var gallery = this;
         $('#fullscreen').click(function() {
           gallery.toggleFullscreen();
         });
-  
+
         $('.icons').appendTo(this.$('container'));
       });
     </script>
