@@ -7,6 +7,9 @@
    :target: https://travis-ci.org/153957/153957-theme
 
 
+`View demo album here <https://153957.github.io/153957-theme/>`_
+
+
 Photo gallery template
 ----------------------
 
