@@ -24,9 +24,9 @@ This section describes how to install an use this theme.
 Installation
 ~~~~~~~~~~~~
 
-Install the ``153597_theme`` package::
+Install the ``153597-theme`` package::
 
-    $ pip install git+https://github.com/153957/153957-theme.git@master#egg=153957-theme
+    $ pip install 153957-theme
 
 
 Configure
