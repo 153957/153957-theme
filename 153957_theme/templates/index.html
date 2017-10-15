@@ -1,10 +1,11 @@
+{% set source_dir = album.gallery.settings.source.split('/')[-1] %}
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-
-    <title>{{ album.title|striptags }}</title>
+    <title>{{ album.gallery.title }}{% if source_dir != album.title|striptags %} - {{ album.title|striptags }}{% endif %}</title>
     <meta name="description" content="">
     <meta name="author" content="{{ album.author }}">
     <meta name="viewport" content="width=device-width">
@@ -15,7 +16,6 @@
   <body>
     <div class="container">
       <div id="main" role="main">
-
         {% if album.gallery.full_tree %}
         <div class="menu">
           {% if album.gallery.title %}
