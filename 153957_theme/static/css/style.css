@@ -38,6 +38,7 @@ a:hover {
   justify-content: flex-start;
   overflow-y: auto;
   max-height: 99vh;
+  white-space: nowrap;
 }
 
 .menu ul {
