@@ -3,9 +3,8 @@
 
 .. image:: http://img.shields.io/badge/license-MIT-blue.svg
    :target: https://github.com/153957/153957-theme/blob/master/LICENSE
-.. image:: http://img.shields.io/travis/153957/153957-theme/master.svg
-   :target: https://travis-ci.org/153957/153957-theme
-
+.. image:: https://img.shields.io/github/workflow/status/153957/153957-theme/Build%20demo%20and%20check%20output
+   :target: https://github.com/153957/153957/actions
 
 `View demo album here <https://153957.github.io/153957-theme/>`_
 
