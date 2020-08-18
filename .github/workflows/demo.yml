@@ -18,23 +18,20 @@ jobs:
       with:
         python-version: '3.7'
 
-    - name: Install openjdk
-      run: |
-        sudo apt-get update
-        sudo apt-get install openjdk-8-jre
-
     - name: Install Python dependencies
       run: |
         pip install --upgrade pip
-        pip install -e .[validate]
+        pip install -e .
 
     - name: Build site
       run: |
         make demo
 
     - name: Check html
-      run: |
-        html5validator --root demo/output --show-warnings --also-check-css
+      uses: Cyb3r-Jak3/html5validator-action@v0.4.2
+      with:
+        root: demo/output/
+        css: true
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3.6.1
