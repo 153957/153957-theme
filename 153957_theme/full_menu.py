@@ -7,6 +7,7 @@ Limitations:
 
 import os
 import operator
+
 from collections import OrderedDict
 
 from sigal import signals
