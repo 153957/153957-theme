@@ -1,6 +1,9 @@
 name: Build demo and check output
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   build:
@@ -17,6 +20,7 @@ jobs:
 
     - name: Install openjdk
       run: |
+        sudo apt-get update
         sudo apt-get install openjdk-8-jre
 
     - name: Install Python dependencies
