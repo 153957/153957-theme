@@ -12,27 +12,22 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-
     - name: Set up Python 3.7
       uses: actions/setup-python@v1
       with:
         python-version: '3.7'
-
     - name: Install Python dependencies
       run: |
         pip install --upgrade pip
         pip install -e .
-
     - name: Build site
       run: |
         make demo
-
     - name: Check html
       uses: Cyb3r-Jak3/html5validator-action@v0.4.2
       with:
         root: demo/output/
         css: true
-
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
