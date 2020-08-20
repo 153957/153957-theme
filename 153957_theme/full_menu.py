@@ -5,8 +5,8 @@ Limitations:
 
 """
 
-import os
 import operator
+import os
 
 from collections import OrderedDict
 
