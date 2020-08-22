@@ -1,16 +1,18 @@
-""" Use the 153957-theme as theme for the gallery
-"""
+"""Use the 153957-theme as theme for the gallery"""
 
-import os
+from pathlib import Path
 
 from sigal import signals
 
 
-def theme(gallery):
-    """set theme settings to this theme"""
+def get_path():
+    return str(Path(__file__).resolve().parent)
 
-    theme_directory = os.path.dirname(os.path.abspath(__file__))
-    gallery.settings['theme'] = theme_directory
+
+def theme(gallery):
+    """Set theme settings to this theme"""
+
+    gallery.settings['theme'] = get_path()
 
 
 def register(settings):

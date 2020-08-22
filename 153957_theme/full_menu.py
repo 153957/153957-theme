@@ -1,4 +1,4 @@
-""" Add full menu to gallery
+"""Add full menu to gallery
 
 Limitations:
 - Currently only supports sorting albums by name in normal order (can not be reversed).

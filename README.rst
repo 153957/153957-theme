@@ -1,7 +1,7 @@
 153957 theme
 ============
 
-.. image:: http://img.shields.io/badge/license-MIT-blue.svg
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
    :target: https://github.com/153957/153957-theme/blob/master/LICENSE
 .. image:: https://img.shields.io/github/workflow/status/153957/153957-theme/Build%20demo%20and%20check%20output
    :target: https://github.com/153957/153957-theme/actions
@@ -31,16 +31,24 @@ Install the ``153597-theme`` package::
 Configure
 ~~~~~~~~~
 
-In the ``sigal.conf.py`` of an album the ``theme`` setting should normally be
-set to either one of the themes included in ``sigal`` or the path to a theme.
-However, since the theme is included in this package its location might be
-difficult to determine. In order simplify this a plugin is included which sets
-the theme automatically when the ``Gallery`` is initialized.
+In ``sigal.conf.py`` configuration for an album the ``theme`` setting should be
+a path to a theme directory. However, since this theme is provided as a Python
+package its location might be harder to get. Two options are available for
+configuration:
+
+The theme can be configured as a plugin or you can get the path by importing
+the package. By setting is as plugin the theme is automatically set.
 
 Set ``theme`` to an empty string and add the theme and menu plugins::
 
     theme = ''
     plugins = ['153957_theme.theme', '153957_theme.full_menu', …]
+
+The alternative::
+
+    from 153957_theme import theme
+    theme = theme.get_path()
+    plugins = ['153957_theme.full_menu', …]
 
 
 Sources
