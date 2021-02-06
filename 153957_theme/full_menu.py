@@ -8,8 +8,6 @@ Limitations:
 import operator
 import os
 
-from collections import OrderedDict
-
 from sigal import signals
 
 
@@ -18,7 +16,7 @@ def full_tree(gallery):
 
     sorted_tree = sorted(gallery.albums.items(), key=operator.itemgetter(0))
 
-    gallery.full_tree = OrderedDict()
+    gallery.full_tree = dict()
 
     for name, album in sorted_tree:
         if name == '.':
@@ -29,7 +27,7 @@ def full_tree(gallery):
             current_ancestor = current_ancestor[ancestor]['subalbums']
         current_ancestor[album.name] = {
             'self': album,
-            'subalbums': OrderedDict()
+            'subalbums': dict()
         }
 
 
