@@ -12,10 +12,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Set up Python 3.7
+    - name: Set up Python 3.9
       uses: actions/setup-python@v1
       with:
-        python-version: '3.7'
+        python-version: '3.9'
     - name: Install ffmpeg
       run: |
         sudo apt-get update
@@ -28,10 +28,11 @@ jobs:
       run: |
         make demo
     - name: Check html
-      uses: Cyb3r-Jak3/html5validator-action@v0.4.2
+      uses: Cyb3r-Jak3/html5validator-action@v0.4.4
       with:
         root: demo/output/
         css: true
+        log_level: INFO
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3.6.1
       with:
