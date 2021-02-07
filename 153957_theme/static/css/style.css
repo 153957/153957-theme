@@ -123,7 +123,7 @@ a:hover {
 
 .galleria-container.galleria-theme-classic {
   max-height: inherit;
-  background-color: #fff;
+  background-color: transparent;
 }
 
 .galleria-container.galleria-theme-classic .galleria-thumbnails-container {
@@ -198,7 +198,7 @@ a:hover {
   z-index: 2;
   position: absolute;
   text-align: right;
-  background-color: #fff;
+  background-color: transparent;
   border-radius: 3px;
   opacity: 0.6;
 }
@@ -214,4 +214,38 @@ a:hover {
   background-repeat: no-repeat;
   width: 15px;
   height: 15px;
+}
+
+/* dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: #eee;
+  }
+
+  a,
+  a:link,
+  a:visited {
+    color: #eee;
+  }
+
+  a:hover {
+    color: #fff;
+  }
+
+  .menu a,
+  .menu a:link,
+  .menu a:visited {
+    color: #eee;
+  }
+
+  .menu a:hover,
+  .menu .current > a {
+    color: #4af;
+  }
+
+  .galleria-container.galleria-theme-classic .galleria-thumbnails .galleria-image {
+    border-bottom: 3px solid #111;
+  }
+
 }
