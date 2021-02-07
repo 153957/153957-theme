@@ -248,4 +248,13 @@ a:hover {
     border-bottom: 3px solid #111;
   }
 
+  .galleria-theme-classic .galleria-thumb-nav-left,
+  .galleria-theme-classic .galleria-thumb-nav-right,
+  .galleria-theme-classic .galleria-info-link,
+  .galleria-theme-classic .galleria-info-close,
+  .galleria-theme-classic .galleria-image-nav-left,
+  .galleria-theme-classic .galleria-image-nav-right {
+      filter: invert(1) !important;
+  }
+
 }
