@@ -123,7 +123,7 @@ a:hover {
 
 .galleria-container.galleria-theme-classic {
   max-height: inherit;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .galleria-container.galleria-theme-classic .galleria-thumbnails-container {
@@ -242,6 +242,10 @@ a:hover {
   .menu a:hover,
   .menu .current > a {
     color: #4af;
+  }
+
+  .galleria-container.galleria-theme-classic {
+    background-color: #111;
   }
 
   .galleria-container.galleria-theme-classic .galleria-thumbnails .galleria-image {
