@@ -258,7 +258,14 @@ a:hover {
   .galleria-theme-classic .galleria-info-close,
   .galleria-theme-classic .galleria-image-nav-left,
   .galleria-theme-classic .galleria-image-nav-right {
-      filter: invert(1) !important;
+    filter: invert(1) !important;
   }
 
+  .galleria-container.galleria-theme-classic .galleria-loader {
+    filter: invert(1) !important;
+  }
+
+  .icons a {
+    filter: invert(1) !important;
+  }
 }
