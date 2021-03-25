@@ -37,7 +37,7 @@
           {% for media in album.medias %}
             {% if media.type == "image" -%}
               <a
-                  href="{{ media.filename }}"><img src="{{ media.thumbnail }}" alt="{{ media.title or media.filename }}  {{ media.exif.dateobj.strftime('%y%m%d %H%M%S') if 'dateobj' in media.exif else '(unknown date)' }}" /></a
+                  href="{{ media.filename }}"><img src="{{ media.thumbnail }}" alt="{{ media.title or media.filename }}     {{ media.exif.dateobj.strftime('%y%m%d %H%M%S') if 'dateobj' in media.exif else '(unknown date)' }}" /></a
               >
             {%- elif media.type == "video" %}
               <a href="{{ theme.url }}/img/empty.png">
