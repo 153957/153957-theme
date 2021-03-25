@@ -10,7 +10,7 @@ destination = 'output'
 theme = ''  # theme is automatically set by the theme plugin.
 title = 'Photography'
 author = '153957 Photography'
-author_link = 'http://arne.delaat.net/'
+author_link = 'https://arne.delaat.net/'
 use_orig = True
 
 # --------------------
