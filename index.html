@@ -1,0 +1,105 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Photography</title>
+    <meta name="description" content="">
+    <meta name="author" content="153957 Photography">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="static/css/normalize.css">
+    <link rel="stylesheet" href="static/classic/galleria.classic.css">
+    <link rel="stylesheet" href="static/css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div id="main" role="main">
+        <div class="menu">
+            <p class="title">
+                <a href="">Photography</a>
+            </p>
+  <ul
+        class="current_siblings"
+  >
+        <li class="album_title">
+          <a href="Poles">Poles</a>
+        <li class="album_title">
+          <a href="Sequences">Sequences</a>
+        <li class="album_title">
+          <a href="Time-Lapse">Time-Lapse</a>
+  </ul>
+        </div>
+
+        <div class="icons">
+          <a id="fullscreen"></a>
+        </div>
+        <div id="gallery">
+<a
+                  href=""><img src="thumbnails/ADL_029217.jpg" alt="ADL_029217  100603 210117" /></a
+              ><a
+                  href=""><img src="thumbnails/ADL_047166.jpg" alt="ADL_047166  101028 165206" /></a
+              ><a
+                  href=""><img src="thumbnails/ADL_049924.jpg" alt="ADL_049924  101119 233423" /></a
+              ><a
+                  href=""><img src="thumbnails/ADL_058445.jpg" alt="ADL_058445  110203 180948" /></a
+              ><a
+                  href=""><img src="thumbnails/ADL_067648.jpg" alt="ADL_067648  110522 210634" /></a
+              ><a
+                  href=""><img src="thumbnails/ADL_085334.jpg" alt="ADL_085334  111209 155749" /></a
+              ><a
+                  href=""><img src="thumbnails/ADL_086401.jpg" alt="ADL_086401  111214 183759" /></a
+              ><a
+                  href=""><img src="thumbnails/ADL_097538.jpg" alt="ADL_097538  120405 092315" /></a
+              ><a
+                  href=""><img src="thumbnails/ADL_098569.jpg" alt="ADL_098569  120427 115048" /></a
+              ><a
+                  href=""><img src="thumbnails/ADL_098589.jpg" alt="ADL_098589  120427 124932" /></a
+              ><a
+                  href=""><img src="thumbnails/ADL_106283.jpg" alt="ADL_106283  120701 142406" /></a
+              >        </div>
+
+
+
+      </div>
+
+    </div>
+
+    <script src="static/js/iframeResizer.contentWindow.min.js"></script>
+    <script src="static/js/jquery-3.5.1.min.js"></script>
+    <script src="static/js/galleria.min.js"></script>
+    <script src="static/js/galleria.classic.min.js"></script>
+    <script src="static/js/galleria.history.min.js"></script>
+    <script>
+      Galleria.configure({
+        imageCrop: false,
+        transition: null,
+        clicknext: true,
+        showCounter: false,
+        showInfo: false,
+        transitionSpeed: 0,
+        carouselSpeed: 0,
+        height: 0.9,
+       });
+
+      Galleria.run("#gallery");
+
+      Galleria.ready(function() {
+        this.attachKeyboard({
+          right: this.next,
+          left: this.prev,
+          up: function() {this.show(0);},
+          /* Toggle fullscreen display on press of 'f' key */
+          0x46: this.toggleFullscreen,
+        });
+
+        var gallery = this;
+        $('#fullscreen').click(function() {
+          gallery.toggleFullscreen();
+        });
+
+        $('.icons').appendTo(this.$('container'));
+      });
+    </script>
+  </body>
+</html>

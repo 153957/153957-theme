@@ -1,0 +1,100 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Photography - Candle</title>
+    <meta name="description" content="">
+    <meta name="author" content="153957 Photography">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="../../static/css/normalize.css">
+    <link rel="stylesheet" href="../../static/classic/galleria.classic.css">
+    <link rel="stylesheet" href="../../static/css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div id="main" role="main">
+        <div class="menu">
+            <p class="title">
+                <a href="../../">Photography</a>
+            </p>
+  <ul
+  >
+        <li class="album_title">
+          <a href="../../Poles">Poles</a>
+        <li class="album_title current_ancestor">
+          <a href="../../Sequences">Sequences</a>
+  <ul
+          class="current_siblings"
+  >
+        <li class="album_title current current_ancestor">
+          <a href="../../Sequences/Candle">Candle</a>
+        <li class="album_title">
+          <a href="../../Sequences/Tree">Tree</a>
+  </ul>
+        <li class="album_title">
+          <a href="../../Time-Lapse">Time-Lapse</a>
+  </ul>
+        </div>
+
+        <div class="icons">
+          <a id="fullscreen"></a>
+        </div>
+        <div id="gallery">
+<a
+                  href=""><img src="thumbnails/IMG_4204.jpg" alt="IMG_4204  050624 194707" /></a
+              ><a
+                  href=""><img src="thumbnails/IMG_19750.jpg" alt="IMG_19750  051229 145609" /></a
+              ><a
+                  href=""><img src="thumbnails/IMG_28285.jpg" alt="IMG_28285  060228 124657" /></a
+              ><a
+                  href=""><img src="thumbnails/IMG_37962.jpg" alt="IMG_37962  060402 132609" /></a
+              ><a
+                  href=""><img src="thumbnails/IMG_46144.jpg" alt="IMG_46144  060605 125004" /></a
+              >        </div>
+
+
+
+      </div>
+
+    </div>
+
+    <script src="../../static/js/iframeResizer.contentWindow.min.js"></script>
+    <script src="../../static/js/jquery-3.5.1.min.js"></script>
+    <script src="../../static/js/galleria.min.js"></script>
+    <script src="../../static/js/galleria.classic.min.js"></script>
+    <script src="../../static/js/galleria.history.min.js"></script>
+    <script>
+      Galleria.configure({
+        imageCrop: false,
+        transition: null,
+        clicknext: true,
+        showCounter: false,
+        showInfo: false,
+        transitionSpeed: 0,
+        carouselSpeed: 0,
+        height: 0.9,
+       });
+
+      Galleria.run("#gallery");
+
+      Galleria.ready(function() {
+        this.attachKeyboard({
+          right: this.next,
+          left: this.prev,
+          up: function() {this.show(0);},
+          /* Toggle fullscreen display on press of 'f' key */
+          0x46: this.toggleFullscreen,
+        });
+
+        var gallery = this;
+        $('#fullscreen').click(function() {
+          gallery.toggleFullscreen();
+        });
+
+        $('.icons').appendTo(this.$('container'));
+      });
+    </script>
+  </body>
+</html>
