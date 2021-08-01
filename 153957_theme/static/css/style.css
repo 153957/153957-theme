@@ -112,6 +112,7 @@ a:hover {
   line-height: 0;
   flex: 1;
   min-width: 250px;
+  max-height: 100vh;
   clear: both;
 }
 
@@ -141,7 +142,29 @@ a:hover {
 
 .galleria-container.galleria-theme-classic .galleria-stage {
   top: 80px;
-  bottom: 2px;
+  bottom: 17px;
+}
+
+.galleria-container.galleria-theme-classic .galleria-info {
+  top: initial;
+  bottom: 0px;
+  pointer-events: none;
+}
+
+.galleria-container.galleria-theme-classic .galleria-info-text {
+  display: block;
+  background-color: transparent;
+  padding: 0;
+}
+
+.galleria-container.galleria-theme-classic .galleria-info-description {
+  color: #222;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  font-variant: normal;
+  font-style: normal;
+  font-variant-numeric: tabular-nums;
+  white-space: pre;
 }
 
 .galleria-container.galleria-theme-classic .galleria-loader {
@@ -153,6 +176,10 @@ a:hover {
 }
 
 @media (pointer: coarse) {
+  #gallery {
+    max-height: unset;
+  }
+
   .galleria-container.galleria-theme-classic .galleria-thumbnails-container,
   .galleria-container.galleria-theme-classic .galleria-thumb-nav-left,
   .galleria-container.galleria-theme-classic .galleria-thumb-nav-right,
@@ -247,6 +274,10 @@ a:hover {
 
   .galleria-container.galleria-theme-classic {
     background-color: #111;
+  }
+
+  .galleria-container.galleria-theme-classic .galleria-info-description {
+    color: #eee;
   }
 
   .galleria-container.galleria-theme-classic .galleria-thumbnails .galleria-image {
