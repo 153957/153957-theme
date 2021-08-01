@@ -18,11 +18,9 @@ jobs:
       - run: |
           sudo apt-get update
           sudo apt-get install ffmpeg
-      - run: |
-          pip install --upgrade pip
-          pip install -e .
+      - run: make devinstall
       - run: make demo
-      - uses: Cyb3r-Jak3/html5validator-action@v0.6
+      - uses: Cyb3r-Jak3/html5validator-action@v0.6.1
         with:
           root: demo/output/
           css: true
