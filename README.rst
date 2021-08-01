@@ -49,8 +49,8 @@ The alternative::
 Sources
 -------
 
-Based on `sigal <http://sigal.saimon.org/>`_ version of Galleria theme, which is
+Based on `sigal <https://sigal.saimon.org/>`_ version of Galleria theme, which is
 distributed under the MIT License.
 
-Theme based on `Galleria Classic <http://galleria.io/>`_, which is distributed under
-the MIT License.
+Theme based on `Galleria Classic <https://github.com/GalleriaJS/galleria/>`_,
+which is distributed under the MIT License.
