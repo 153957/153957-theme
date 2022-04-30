@@ -37,16 +37,19 @@
           {% for media in album.medias %}
             {% if media.type == "image" -%}
               <a
-                  href="{{ media.filename }}"><img src="{{ media.thumbnail }}" alt="{{ media.title or media.filename }}     {{ media.exif.dateobj.strftime('%y%m%d %H%M%S') if 'dateobj' in media.exif else '(unknown date)' }}" /></a
-              >
+                href="{{ media.dst_filename }}"
+              ><img
+                  src="{{ media.thumbnail }}"
+                  alt="{{ media.title or media.src_filename }}     {{ media.exif.dateobj.strftime('%y%m%d %H%M%S') if 'dateobj' in media.exif else '(unknown date)' }}"
+              /></a>
             {%- elif media.type == "video" %}
-              <a href="{{ theme.url }}/img/empty.png">
-                <img src="{{ media.thumbnail }}" alt="{{ media.filename }}"
-                    data-title="{{ media.title or media.filename }}"
-                    data-layer="<video controls>
-                                  <source src='{{ media.filename }}' type='{{ media.mime }}' />
-                                </video>" />
-              </a>
+              <a href="{{ theme.url }}/img/empty.png"
+              ><img
+                  src="{{ media.thumbnail }}"
+                  alt="{{ media.src_filename }}"
+                  data-title="{{ media.title or media.src_filename }}"
+                  data-layer="<video controls><source src='{{ media.src_filename }}' type='{{ media.mime }}' /></video>"
+              /></a>
             {% endif %}
           {% endfor %}
         </div>
@@ -55,8 +58,9 @@
         {% if album.zip %}
         <div id="additionnal-infos" class="row">
           <p>
-            <a href="{{ album.zip }}"
-               title="Download a zip archive with all images">Download ZIP</a>
+            <a
+              href="{{ album.zip }}"
+              title="Download a zip archive with all images">Download ZIP</a>
           </p>
         </div>
         {% endif %}
