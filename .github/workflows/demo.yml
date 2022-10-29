@@ -18,7 +18,7 @@ jobs:
           sudo apt-get install ffmpeg
       - run: make devinstall
       - run: make demo
-      - uses: Cyb3r-Jak3/html5validator-action@v0.6.1
+      - uses: Cyb3r-Jak3/html5validator-action@v7.2.0
         with:
           root: demo/output/
           css: true
