@@ -3,7 +3,7 @@ name: Build demo and check output
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
