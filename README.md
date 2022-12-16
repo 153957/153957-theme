@@ -2,7 +2,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/153957-theme)](https://pypi.org/project/153957-theme/)
 [![License](https://img.shields.io/github/license/153957/153957-theme)](https://github.com/153957/153957-theme/blob/master/LICENSE)
-[![Build](https://img.shields.io/github/workflow/status/153957/153957-theme/Run%20tests)](https://github.com/153957/153957-theme/actions)
+[![Build](https://img.shields.io/github/actions/workflow/status/153957/153957-theme/tests.yml?branch=main)](https://github.com/153957/153957-theme/actions)
 
 [View demo album here](https://153957.github.io/153957-theme/)
 
