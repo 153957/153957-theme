@@ -9,14 +9,15 @@ import operator
 import os
 
 from sigal import signals
+from sigal.gallery import Album, Gallery
 
 
-def full_tree(gallery):
+def full_tree(gallery: Gallery) -> None:
     """full menu tree"""
 
     sorted_tree = sorted(gallery.albums.items(), key=operator.itemgetter(0))
 
-    gallery.full_tree = dict()
+    gallery.full_tree = {}
 
     for name, album in sorted_tree:
         if name == '.':
@@ -27,11 +28,11 @@ def full_tree(gallery):
             current_ancestor = current_ancestor[ancestor]['subalbums']
         current_ancestor[album.name] = {
             'self': album,
-            'subalbums': dict()
+            'subalbums': {},
         }
 
 
-def path_to_root(album):
+def path_to_root(album: Album) -> None:
     """url path back to gallery root"""
 
     path_to_root = os.path.relpath('.', album.path)
@@ -43,13 +44,13 @@ def path_to_root(album):
     album.path_to_root = path_to_root
 
 
-def path_from_root(album):
+def path_from_root(album: Album) -> None:
     """url from gallery root"""
 
     album.path_from_root = album.path
 
 
-def register(settings):
+def register(settings: dict) -> None:
     signals.gallery_initialized.connect(full_tree)
     signals.album_initialized.connect(path_to_root)
     signals.album_initialized.connect(path_from_root)

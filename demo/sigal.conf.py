@@ -30,4 +30,4 @@ ignore_files = []
 # Plugins
 # --------
 
-plugins = ['153957_theme.full_menu', '153957_theme.theme']
+plugins = ['theme_153957.full_menu', 'theme_153957.theme']

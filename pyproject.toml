@@ -1,0 +1,86 @@
+[build-system]
+requires = ['flit_core>=3.9']
+build-backend = 'flit_core.buildapi'
+
+[project]
+name = '153957-theme'
+version = '3.0'
+description = 'Theme for sigal generated photo albums'
+readme = 'README.md'
+requires-python = '>=3.11'
+license = {file = 'LICENSE' }
+authors = [
+    {name = 'Arne de Laat', email = 'arne@delaat.net'},
+]
+maintainers = [
+    {name = 'Arne de Laat', email = 'arne@delaat.net'},
+]
+keywords = [
+    'photo album',
+    'theme',
+    'sigal',
+    'galleria',
+]
+classifiers = [
+    'Environment :: Plugins',
+    'Environment :: Web Environment',
+    'License :: OSI Approved :: MIT License',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 3',
+    'Topic :: Text Processing :: Markup :: HTML',
+]
+dependencies = [
+    'sigal==2.3',
+]
+
+[project.optional-dependencies]
+publish = [
+    'flit==3.9.0',
+]
+
+[project.urls]
+Repository = 'https://github.com/153957/153957-theme/'
+
+[tool.flit.module]
+name = 'theme_153957'
+
+[tool.black]
+target-version = ['py311']
+line-length = 120
+skip-string-normalization = true
+
+[tool.ruff]
+target-version = 'py311'
+line-length = 120
+select = [
+    # https://github.com/charliermarsh/ruff#supported-rules
+    'ALL',
+    'E111', 'E112', 'E113', 'E114', 'E115', 'E116', 'E117',
+    'E201', 'E202', 'E203',
+    'E211',
+    'E221', 'E222', 'E223', 'E224', 'E225', 'E226', 'E227', 'E228',
+    'E231',
+    'E251', 'E252',
+    'E261', 'E262', 'E265', 'E266',
+    'E271', 'E272', 'E273', 'E274', 'E275',
+]
+ignore = [
+    'ANN101',  # No need to add type to self
+    'ARG001',  # Function has required argument, even if they are not used
+    'D',  # Ignore docstring checks
+    'EM',  # Allow messages directly in exceptions
+    'FBT001',  # Allow positional for boolean arguments
+    'FBT002',  # Allow default value for boolean arguments
+    'INP001',  # Ignore implicit namespace package for demo settings
+    'PD',  # Not using pandas
+    'PLR0913',  # Allow functions with many arguments
+    'PT',  # Not using pytest
+    'Q000',  # Use single quotes
+    'RET504',  # Allow variable assignment before return
+    'SIM108',  # Allow if-else block instead of ternary
+    'T201',  # Allow using print
+    'TRY003',  # Specific messages for common exception classes
+]
+
+[tool.ruff.isort]
+lines-between-types = 1

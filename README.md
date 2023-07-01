@@ -1,4 +1,4 @@
-# 153957 theme
+# Theme 153957
 
 [![PyPI](https://img.shields.io/pypi/v/153957-theme)](https://pypi.org/project/153957-theme/)
 [![License](https://img.shields.io/github/license/153957/153957-theme)](https://github.com/153957/153957-theme/blob/main/LICENSE)
@@ -37,13 +37,13 @@ the package. By setting is as plugin the theme is automatically set.
 Set `theme` to an empty string and add the theme and menu plugins:
 
     theme = ''
-    plugins = ['153957_theme.theme', '153957_theme.full_menu', …]
+    plugins = ['theme_153957.theme', 'theme_153957.full_menu', …]
 
 The alternative:
 
-    from 153957_theme import theme
+    from theme_153957 import theme
     theme = theme.get_path()
-    plugins = ['153957_theme.full_menu', …]
+    plugins = ['theme_153957.full_menu', …]
 
 
 ## Sources
