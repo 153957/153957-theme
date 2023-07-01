@@ -34,6 +34,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+dev = [
+    'mypy==1.4.1',
+]
 publish = [
     'flit==3.9.0',
 ]
@@ -43,6 +46,14 @@ Repository = 'https://github.com/153957/153957-theme/'
 
 [tool.flit.module]
 name = 'theme_153957'
+
+[tool.mypy]
+ignore_missing_imports = true
+show_column_numbers = true
+show_error_codes = true
+strict = true
+warn_return_any = true
+warn_unused_configs = true
 
 [tool.black]
 target-version = ['py311']

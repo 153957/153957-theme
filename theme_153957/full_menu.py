@@ -8,6 +8,8 @@ Limitations:
 import operator
 import os
 
+from typing import Any
+
 from sigal import signals
 from sigal.gallery import Album, Gallery
 
@@ -50,7 +52,7 @@ def path_from_root(album: Album) -> None:
     album.path_from_root = album.path
 
 
-def register(settings: dict) -> None:
+def register(settings: dict[str, Any]) -> None:
     signals.gallery_initialized.connect(full_tree)
     signals.album_initialized.connect(path_to_root)
     signals.album_initialized.connect(path_from_root)

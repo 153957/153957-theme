@@ -2,6 +2,7 @@
 
 from pathlib import Path
 from shutil import rmtree
+from typing import Any
 
 from sigal import signals
 from sigal.gallery import Gallery
@@ -24,6 +25,6 @@ def remove_leaflet(gallery: Gallery) -> None:
     rmtree(leafet_path)
 
 
-def register(settings: dict) -> None:
+def register(settings: dict[str, Any]) -> None:
     signals.gallery_initialized.connect(theme)
     signals.gallery_build.connect(remove_leaflet)

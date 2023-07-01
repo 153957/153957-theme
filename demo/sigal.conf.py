@@ -23,11 +23,11 @@ thumb_size = (280, 140)
 thumb_fit = False
 albums_sort_attr = 'name'
 medias_sort_attr = 'date'
-ignore_directories = []
-ignore_files = []
+ignore_directories: list[str] = []
+ignore_files: list[str] = []
 
 # --------
 # Plugins
 # --------
 
-plugins = ['theme_153957.full_menu', 'theme_153957.theme']
+plugins: list[str] = ['theme_153957.full_menu', 'theme_153957.theme']
