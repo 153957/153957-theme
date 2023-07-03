@@ -93,5 +93,8 @@ ignore = [
     'TRY003',  # Specific messages for common exception classes
 ]
 
+[tool.ruff.per-file-ignores]
+'demo/sigal.conf.py' = ['N999']  # Allow invalid module name for default config
+
 [tool.ruff.isort]
 lines-between-types = 1
