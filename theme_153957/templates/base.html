@@ -109,7 +109,7 @@
       function pauseCurrent() {
         // Pause a video when navigating to another image
         const current = document.getElementById(window.location.hash.slice(1))
-        current.querySelector('video')?.pause()
+        current?.querySelector('video')?.pause()
       }
 
       function nextPrevious(event) {
