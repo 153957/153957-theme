@@ -4,114 +4,151 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>{{ album.gallery.title }}{% if source_dir != album.title|striptags %} - {{ album.title|striptags }}{% endif %}</title>
     <meta name="description" content="">
     <meta name="author" content="{{ album.author }}">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="{{ theme.url }}/css/normalize.css">
-    <link rel="stylesheet" href="{{ theme.url }}/classic/galleria.classic.css">
     <link rel="stylesheet" href="{{ theme.url }}/css/style.css">
   </head>
   <body>
-    <div class="container">
-      <div id="main" role="main">
-        {% if album.gallery.full_tree %}
-        <div class="menu">
+    <div id="main">
+      {% if album.gallery.full_tree %}
+        <div id="menu">
           {% if album.gallery.title %}
             <p class="title">
-                <a href="{{ album.path_to_root }}">{{ album.gallery.title }}</a>
+              <a href="{{ album.path_to_root }}">{{ album.gallery.title }}</a>
             </p>
           {% endif %}
           {% with albums=album.gallery.full_tree, depth=0 %}
             {% include './menu.html' %}
           {% endwith %}
         </div>
-        {% endif %}
+      {% endif %}
 
-        {% if album.medias %}
-        <div class="icons">
-          <a id="fullscreen"></a>
+      {% if album.medias %}
+        <div id="thumbnails">
+          {% for media in album.medias -%}
+            <a
+              href="#{{ media.dst_filename }}"
+              data-id="{{ media.dst_filename }}"
+            ><img
+              src="{{ media.thumbnail }}"
+              alt="{{ media.title or media.src_filename }}"
+            /></a>
+          {%- endfor %}
         </div>
-        <div id="gallery">
+
+        <div id="canvas">
           {% for media in album.medias %}
-            {% if media.type == "image" -%}
-              <a
-                href="{{ media.dst_filename }}"
-              ><img
-                  src="{{ media.thumbnail }}"
-                  alt="{{ media.title or media.src_filename }}     {{ media.exif.dateobj.strftime('%y%m%d %H%M%S') if 'dateobj' in media.exif else '(unknown date)' }}"
-              /></a>
-            {%- elif media.type == "video" %}
-              <a href="{{ theme.url }}/img/empty.png"
-              ><img
-                  src="{{ media.thumbnail }}"
-                  alt="{{ media.src_filename }}"
-                  data-title="{{ media.title or media.src_filename }}"
-                  data-layer="<video controls><source src='{{ media.src_filename }}' type='{{ media.mime }}' /></video>"
-              /></a>
-            {% endif %}
+            <div
+              id="{{ media.dst_filename }}"
+            >
+              {% if media.type == "image" -%}
+                <span>{{ media.title or media.src_filename }}     {{ media.exif.dateobj.strftime('%y%m%d %H%M%S') if media.exif and 'dateobj' in media.exif else '(unknown date)' }}</span>
+                <img
+                  src="{{ media.dst_filename }}"
+                  alt="{{ media.title or media.src_filename }}     {{ media.exif.dateobj.strftime('%y%m%d %H%M%S') if media.exif and 'dateobj' in media.exif else '(unknown date)' }}"
+                  loading="lazy"
+                />
+              {%- elif media.type == "video" %}
+                <span>{{ media.title or media.src_filename }}</span>
+                <video
+                  controls
+                  preload="metadata"
+                  poster="{{ media.thumbnail }}"
+                >
+                  <source src='{{ media.src_filename }}' type='{{ media.mime }}' />
+                </video>
+              {% endif %}
+            </div>
           {% endfor %}
         </div>
-        {% endif %}
-
-        {% if album.zip %}
-        <div id="additionnal-infos" class="row">
-          <p>
-            <a
-              href="{{ album.zip }}"
-              title="Download a zip archive with all images">Download ZIP</a>
-          </p>
-        </div>
-        {% endif %}
-
-        {% if album.description %}
-        <div id="description">
-          {{ album.description }}
-        </div>
-        {% endif %}
-
-      </div>
-
+      {% endif %}
     </div>
 
-    <script src="{{ theme.url }}/js/iframeResizer.contentWindow.min.js"></script>
-    {% if album.medias %}
-    <script src="{{ theme.url }}/js/jquery-3.5.1.min.js"></script>
-    <script src="{{ theme.url }}/js/galleria.min.js"></script>
-    <script src="{{ theme.url }}/js/galleria.classic.min.js"></script>
-    <script src="{{ theme.url }}/js/galleria.history.min.js"></script>
     <script>
-      Galleria.configure({
-        imageCrop: false,
-        transition: null,
-        clicknext: true,
-        showCounter: false,
-        showInfo: true,
-        transitionSpeed: 0,
-        carouselSpeed: 0,
-        height: 0.9,
-       });
+      function leftHandler() {
+        // Go to previous image
+        pauseCurrent()
+        const current = document.getElementById(window.location.hash.slice(1))
+        const next = current?.previousElementSibling ? current.previousElementSibling : document.getElementById('canvas').lastElementChild
+        location.replace(`#${next.id}`)
+      }
 
-      Galleria.run("#gallery");
+      function rightHandler() {
+        // Go to next image
+        pauseCurrent()
+        const current = document.getElementById(window.location.hash.slice(1))
+        const next = current?.nextElementSibling ? current.nextElementSibling : document.getElementById('canvas').firstElementChild
+        location.replace(`#${next.id}`)
+      }
 
-      Galleria.ready(function() {
-        this.attachKeyboard({
-          right: this.next,
-          left: this.prev,
-          up: function() {this.show(0);},
-          /* Toggle fullscreen display on press of 'f' key */
-          0x46: this.toggleFullscreen,
-        });
+      function upHandler() {
+        // Go to first image
+        pauseCurrent()
+        const next = document.getElementById('canvas').firstElementChild
+        location.replace(`#${next.id}`)
+      }
 
-        var gallery = this;
-        $('#fullscreen').click(function() {
-          gallery.toggleFullscreen();
-        });
+      function downHandler() {
+        // Go to last image
+        pauseCurrent()
+        const next = document.getElementById('canvas').lastElementChild
+        location.replace(`#${next.id}`)
+      }
 
-        $('.icons').appendTo(this.$('container'));
-      });
+      function highlightThumbnail() {
+        // Highlight the thumbnail corresponding to the displayed image
+        const current = document.querySelector('.current')
+        current?.classList.remove('current')
+        const next = document.querySelector(`[data-id="${window.location.hash.slice(1)}"]`)
+        next?.classList.add('current')
+      }
+
+      function pauseCurrent() {
+        // Pause a video when navigating to another image
+        const current = document.getElementById(window.location.hash.slice(1))
+        current.querySelector('video')?.pause()
+      }
+
+      function nextPrevious(event) {
+        // Detect clicks on left/right side of currently displayed image to go to next/previous
+        if (event.currentTarget.querySelector(':target video')) {
+          return false
+        }
+        const offset = event.offsetX - (event.currentTarget.offsetWidth / 2)
+        const deadzone = 20
+        if (offset > deadzone) {
+          rightHandler()
+        } else if (offset < -deadzone) {
+          leftHandler()
+        }
+      }
+
+      function keyHandler(event) {
+        // Handle navigation by keys
+        const callback = {
+          'ArrowLeft': leftHandler,
+          'ArrowRight': rightHandler,
+          'ArrowUp': upHandler,
+          'ArrowDown': downHandler,
+        }[event.key]
+        callback?.()
+      }
+
+      // Do not add handlers if there is no content
+      const canvas = document.getElementById('canvas')
+      const first_entry = canvas.firstElementChild
+      if (first_entry) {
+        document.addEventListener('keydown', keyHandler)
+        window.addEventListener('hashchange', highlightThumbnail)
+        canvas.addEventListener('click', nextPrevious)
+        if (!window.location.hash.slice(1)) {
+          upHandler()
+        }
+        highlightThumbnail()
+      }
     </script>
-    {% endif %}
   </body>
 </html>
