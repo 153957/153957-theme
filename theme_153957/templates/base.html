@@ -35,7 +35,7 @@
             ><img
               src="{{ media.thumbnail }}"
               alt="{{ media.title or media.src_filename }}"
-            /></a>
+            ></a>
           {%- endfor %}
         </div>
 
@@ -50,7 +50,7 @@
                   src="{{ media.dst_filename }}"
                   alt="{{ media.title or media.src_filename }}     {{ media.exif.dateobj.strftime('%y%m%d %H%M%S') if media.exif and 'dateobj' in media.exif else '(unknown date)' }}"
                   loading="lazy"
-                />
+                >
               {%- elif media.type == "video" %}
                 <span>{{ media.title or media.src_filename }}</span>
                 <video
