@@ -191,7 +191,10 @@ a:hover {
       'thumbnails'
       'canvas';
   }
-  max-height: initial;
+
+  #menu {
+    max-height: initial;
+  }
 }
 
 @media (pointer: coarse) {
