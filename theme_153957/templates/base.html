@@ -75,6 +75,7 @@
         const current = document.getElementById(window.location.hash.slice(1))
         const next = current?.previousElementSibling ? current.previousElementSibling : document.getElementById('canvas').lastElementChild
         location.replace(`#${next.id}`)
+        preloadSurrounding()
       }
 
       function rightHandler() {
@@ -83,6 +84,7 @@
         const current = document.getElementById(window.location.hash.slice(1))
         const next = current?.nextElementSibling ? current.nextElementSibling : document.getElementById('canvas').firstElementChild
         location.replace(`#${next.id}`)
+        preloadSurrounding()
       }
 
       function upHandler() {
@@ -90,6 +92,7 @@
         pauseCurrent()
         const next = document.getElementById('canvas').firstElementChild
         location.replace(`#${next.id}`)
+        preloadSurrounding()
       }
 
       function downHandler() {
@@ -97,6 +100,16 @@
         pauseCurrent()
         const next = document.getElementById('canvas').lastElementChild
         location.replace(`#${next.id}`)
+        preloadSurrounding()
+      }
+
+      function preloadSurrounding() {
+        // Eagerly load images around current
+        const current = document.getElementById(window.location.hash.slice(1))
+        const previous = current?.previousElementSibling ? current.previousElementSibling : document.getElementById('canvas').lastElementChild
+        previous?.querySelector('img')?.setAttribute('loading', 'eager')
+        const next = current?.nextElementSibling ? current.nextElementSibling : document.getElementById('canvas').firstElementChild
+        next?.querySelector('img')?.setAttribute('loading', 'eager')
       }
 
       function highlightThumbnail() {
@@ -149,6 +162,7 @@
           upHandler()
         }
         highlightThumbnail()
+        preloadSurrounding()
       }
     </script>
   </body>
