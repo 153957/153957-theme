@@ -101,7 +101,7 @@
 
       function highlightThumbnail() {
         // Highlight the thumbnail corresponding to the displayed image
-        const current = document.querySelector('.current')
+        const current = document.getElementById('thumbnails').querySelector('.current')
         current?.classList.remove('current')
         const next = document.querySelector(`[data-id="${window.location.hash.slice(1)}"]`)
         next?.classList.add('current')
