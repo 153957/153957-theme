@@ -131,7 +131,7 @@
         if (event.currentTarget.querySelector(':target video')) {
           return false
         }
-        const offset = event.offsetX - (event.currentTarget.offsetWidth / 2)
+        const offset = event.offsetX - (event.target.offsetWidth / 2)
         const deadzone = 20
         if (offset > deadzone) {
           rightHandler()
