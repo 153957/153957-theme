@@ -16,7 +16,7 @@
 
 body {
   margin: 0;
-  background-color: #fff;
+  background-color: #ffffff;
   font-family: Jost, Futura, Arial, sans-serif;
   color: #222222;
 }
@@ -31,17 +31,6 @@ body {
     'menu thumbnails'
     'menu canvas';
   max-height: 100vh;
-}
-
-a,
-a:link,
-a:visited {
-  color: #222222;
-  text-decoration: underline;
-}
-
-a:hover {
-  color: #000000;
 }
 
 #thumbnails {
@@ -81,6 +70,10 @@ a:hover {
   min-width: 0;
   min-height: 0;
   padding: 2px;
+}
+
+#canvas:fullscreen {
+  background-color: #ffffff;
 }
 
 #canvas div {
@@ -181,6 +174,28 @@ a:hover {
   color: #3993C2;
 }
 
+
+/* fullscreen icon */
+
+#fullscreen {
+  bottom: 5px;
+  right: 5px;
+  z-index: 2;
+  position: absolute;
+  background-image: url('../img/fullscreen.svg');
+  background-repeat: no-repeat;
+  color: #010101;
+  opacity: 0.6;
+  display: block;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+}
+
+#fullscreen:hover {
+  opacity: 0.9;
+}
+
 @media (max-width: 500px) {
   #main {
     grid-template-columns: auto;
@@ -248,5 +263,13 @@ a:hover {
   #menu a:hover,
   #menu .current > a {
     color: #44aaff;
+  }
+
+  #canvas:fullscreen {
+    background-color: #111111;
+  }
+
+  #fullscreen {
+    color: #eeeeee;
   }
 }
