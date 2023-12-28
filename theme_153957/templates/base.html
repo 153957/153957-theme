@@ -146,7 +146,8 @@
         const deadzone = 20
         if (offset > deadzone) {
           rightHandler()
-        } else if (offset < -deadzone) {
+        }
+        else if (offset < -deadzone) {
           leftHandler()
         }
       }
@@ -176,13 +177,20 @@
 
       // Do not add handlers if there is no content
       const canvas = document.getElementById('canvas')
-      const fullscreen = document.getElementById('fullscreen')
       const first_entry = canvas.firstElementChild
       if (first_entry) {
         document.addEventListener('keydown', keyHandler)
         window.addEventListener('hashchange', highlightThumbnail)
         canvas.addEventListener('click', nextPrevious)
-        fullscreen.addEventListener('click', toggleFullscreen)
+
+        const fullscreen = document.getElementById('fullscreen')
+        if (document.fullscreenEnabled) {
+          fullscreen.addEventListener('click', toggleFullscreen)
+        }
+        else {
+          fullscreen.remove()
+        }
+
         if (!window.location.hash.slice(1)) {
           upHandler()
         }
