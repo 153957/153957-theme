@@ -33,6 +33,13 @@ body {
   max-height: 100vh;
 }
 
+#main.no_menu {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    'thumbnails'
+    'canvas';
+}
+
 #thumbnails {
   grid-area: thumbnails;
   overflow-x: scroll;
