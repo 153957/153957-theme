@@ -1,8 +1,8 @@
 # Theme 153957
 
 [![PyPI](https://img.shields.io/pypi/v/153957-theme)](https://pypi.org/project/153957-theme/)
-[![License](https://img.shields.io/github/license/153957/153957-theme)](https://github.com/153957/153957-theme/blob/main/LICENSE)
-[![Build](https://img.shields.io/github/actions/workflow/status/153957/153957-theme/tests.yml?branch=main)](https://github.com/153957/153957-theme/actions)
+[![License](https://img.shields.io/github/license/153957/153957-theme)](LICENSE)
+[![Build](https://github.com/153957/153957-theme/actions/workflows/tests.yml/badge.svg?branch=main)](https://github.com/153957/153957-theme/actions)
 
 [View demo album here](https://153957.github.io/153957-theme/)
 
@@ -14,7 +14,7 @@ Web photo gallery templates adapted to my personal preferences.
 
 ## Usage
 
-This section describes how to install an use this theme.
+This section describes how to install and use this theme.
 
 
 ### Installation
@@ -44,12 +44,3 @@ The alternative:
     from theme_153957 import theme
     theme = theme.get_path()
     plugins = ['theme_153957.full_menu', …]
-
-
-## Sources
-
-Based on [sigal](https://sigal.saimon.org/) version of Galleria theme, which is
-distributed under the MIT License.
-
-Theme based on [Galleria Classic](https://github.com/GalleriaJS/galleria/),
-which is distributed under the MIT License.
