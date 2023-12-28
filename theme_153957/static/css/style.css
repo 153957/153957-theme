@@ -192,11 +192,12 @@ body {
   background-image: url('../img/fullscreen.svg');
   background-repeat: no-repeat;
   color: #010101;
+  filter: drop-shadow(0 0 3px #eeeeee);
   opacity: 0.6;
   display: block;
   cursor: pointer;
-  width: 15px;
-  height: 15px;
+  width: 17px;
+  height: 17px;
 }
 
 #fullscreen:hover {
@@ -278,5 +279,6 @@ body {
 
   #fullscreen {
     color: #eeeeee;
+    filter: drop-shadow(0 0 3px #010101);
   }
 }
