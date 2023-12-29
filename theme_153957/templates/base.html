@@ -46,10 +46,11 @@
               id="{{ media.dst_filename }}"
             >
               {% if media.type == "image" -%}
-                <span>{{ media.title or media.src_filename }}     {{ media.exif.dateobj.strftime('%y%m%d %H%M%S') if media.exif and 'dateobj' in media.exif else '(unknown date)' }}</span>
+                {% set media_date = media.exif.dateobj.strftime('%y%m%d %H%M%S') if media.exif and 'dateobj' in media.exif else '(unknown date)' %}
+                <span>{{ media.title or media.src_filename }}    {{ media_date }}</span>
                 <img
                   src="{{ media.dst_filename }}"
-                  alt="{{ media.title or media.src_filename }}     {{ media.exif.dateobj.strftime('%y%m%d %H%M%S') if media.exif and 'dateobj' in media.exif else '(unknown date)' }}"
+                  alt="{{ media.title or media.src_filename }}    {{ media_date }}"
                   loading="lazy"
                 >
               {%- elif media.type == "video" %}
@@ -68,10 +69,10 @@
 
         <svg id="fullscreen" viewBox="0 0 32 32">
           <g fill="currentColor">
-            <polygon points="27 25 23 20 20 23 25 27 20 32 32 32 32 20"/>
-            <polygon points="12 0 0 0 0 12 4.6 7.4 9.1 12 12 9.1 7.4 4.6"/>
-            <polygon points="12 23 9.2 20 4.6 25 0 20 0 32 12 32 7.4 27"/>
-            <polygon points="32 0 20 0 25 4.6 20 9.1 23 12 27 7.4 32 12"/>
+            <polygon points="27 25 23 20 20 23 25 27 20 32 32 32 32 20" />
+            <polygon points="12 0 0 0 0 12 4.6 7.4 9.1 12 12 9.1 7.4 4.6" />
+            <polygon points="12 23 9.2 20 4.6 25 0 20 0 32 12 32 7.4 27" />
+            <polygon points="32 0 20 0 25 4.6 20 9.1 23 12 27 7.4 32 12" />
           </g>
         </svg>
 
