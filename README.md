@@ -44,3 +44,12 @@ The alternative:
     from theme_153957 import theme
     theme = theme.get_path()
     plugins = ['theme_153957.full_menu', …]
+
+
+### Wrapping album
+
+Use the settings `head`, `body_prefix`, and `body_suffix` to add additional
+code to the templates. The value of `head` is appended to the `head` element,
+the `body` settings are placed just after the body opening tag (`prefix`) and
+just before the closing body tag (`suffix`). This allows embedding the album
+in your own website.
