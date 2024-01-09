@@ -4,11 +4,11 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>{{ album.gallery.title }}{% if source_dir != album.title|striptags %} - {{ album.title|striptags }}{% endif %}</title>
-    <meta name="description" content="">
+    <title>{{ album.gallery.title }}{% if source_dir != album.title|striptags %} : {{ album.title|striptags }}{% endif %}</title>
+    <meta name="description" content="{{ album.description }}">
     <meta name="author" content="{{ album.author }}">
     <meta name="format-detection" content="telephone=no">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ theme.url }}/css/normalize.css">
     <link rel="stylesheet" href="{{ theme.url }}/css/style.css">
   </head>
