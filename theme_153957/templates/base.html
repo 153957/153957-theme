@@ -11,10 +11,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ theme.url }}/css/normalize.css">
     <link rel="stylesheet" href="{{ theme.url }}/css/style.css">
-    {{ settings.head|default('') }}
+    {{ settings.head|default('')|safe }}
   </head>
   <body>
-    {{ settings.body_prefix|default('') }}
+    {{ settings.body_prefix|default('')|safe }}
     <div id="main"{% if not album.gallery.full_tree %} class="no_menu"{% endif %}>
       {% if album.gallery.full_tree %}
         <div id="menu">
@@ -80,7 +80,7 @@
 
       {% endif %}
     </div>
-    {{ settings.body_suffix|default('') }}
+    {{ settings.body_suffix|default('')|safe }}
     <script src="{{ theme.url }}/js/gallery.js"></script>
   </body>
 </html>
