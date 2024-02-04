@@ -9,7 +9,7 @@ devinstall:
 	pip install --upgrade --upgrade-strategy eager --editable .[dev]
 
 .PHONY: test
-test: rufftest typingtest
+test: rufftest typingtest unittest
 
 .PHONY: rufftest
 rufftest:
@@ -19,6 +19,10 @@ rufftest:
 .PHONY: typingtest
 typingtest:
 	mypy .
+
+.PHONY: unittest
+unittest:
+	python -m unittest
 
 .PHONY: clean
 clean:
