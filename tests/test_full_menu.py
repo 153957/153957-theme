@@ -69,7 +69,6 @@ class TestFullMenu(TestCase):
             full_menu.path_from_root(album)
             self.assertEqual(album.path, album.path_from_root)
 
-
     @mock.patch('theme_153957.full_menu.signals')
     def test_register(self, mock_signals: mock.MagicMock) -> None:
         full_menu.register({})
