@@ -1,21 +1,25 @@
-{% if albums %}
+{% if menu_album.albums %}
   <ul
     {% if album.breadcrumb|length == 0 %}
-        class="current_siblings"
+      class="current_siblings"
     {% else %}
-      {% for album_dict in albums.values() %}
-        {% if album_dict.self == album %}
+      {% for subalbum in menu_album.albums %}
+        {% if subalbum == album %}
           class="current_siblings"
         {% endif %}
       {% endfor %}
     {% endif %}
   >
-    {% for album_dict in albums.values() %}
-      {% with current_ancestor=(album.breadcrumb|length and depth < album.breadcrumb|length and album_dict.self.title == album.breadcrumb[depth][1]) %}
-        <li class="album_title{% if album_dict.self == album %} current{% endif %}{% if current_ancestor %} current_ancestor{% endif %}">
-          <a href="{{ album.path_to_root|urlencode }}{{ album_dict.self.path_from_root|urlencode }}">{{ album_dict.self.title }}</a>
+    {% for subalbum in menu_album.albums %}
+      {% with current_ancestor=(
+        album.breadcrumb|length
+        and depth < album.breadcrumb|length
+        and subalbum.title == album.breadcrumb[depth][1]
+      ) %}
+        <li class="album_title{% if subalbum == album %} current{% endif %}{% if current_ancestor %} current_ancestor{% endif %}">
+          <a href="{{ album.path_to_root|urlencode }}{{ subalbum.path_from_root|urlencode }}">{{ subalbum.title }}</a>
           {% if current_ancestor %}
-            {% with albums=album_dict.subalbums, depth=depth+1 %}
+            {% with menu_album=subalbum, depth=depth+1 %}
               {% include './menu.html' %}
             {% endwith %}
           {% endif %}

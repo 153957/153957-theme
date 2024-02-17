@@ -13,26 +13,6 @@ class TestFullMenu(TestCase):
         settings = read_settings(demo_settings)
         return Gallery(settings, ncpu=1)
 
-    def test_full_tree(self) -> None:
-        gallery = self.get_demo_gallery()
-
-        full_menu.full_tree(gallery)
-
-        with self.subTest('Top level albums'):
-            self.assertEqual(
-                ['Long menu', 'Nine levels deep', 'Poles', 'Sequences', 'Time-Lapse'],
-                list(gallery.full_tree.keys()),
-            )
-
-        with self.subTest('Subalbums'):
-            self.assertEqual(
-                ['Candle', 'Tree'],
-                list(gallery.full_tree['Sequences']['subalbums'].keys()),
-            )
-
-        with self.subTest('References to Album objects'):
-            self.assertEqual(gallery.albums['Poles'], gallery.full_tree['Poles']['self'])
-
     def test_path_to_root(self) -> None:
         gallery = self.get_demo_gallery()
 
@@ -69,10 +49,41 @@ class TestFullMenu(TestCase):
             full_menu.path_from_root(album)
             self.assertEqual(album.path, album.path_from_root)
 
+    def test_title_from_metadata(self) -> None:
+        gallery = self.get_demo_gallery()
+
+        with self.subTest('Use directory name as title', album='Poles'):
+            album = gallery.albums['Poles']
+            self.assertEqual('Poles', album.title)
+
+        with self.subTest('Custom title', album='Nine levels deep'):
+            album = gallery.albums['Nine levels deep']
+            self.assertEqual('Inferno', album.title)
+
+    def test_sorted_using_meta(self) -> None:
+        gallery = self.get_demo_gallery()
+
+        with self.subTest('Sorted by name'):
+            self.assertEqual(
+                [gallery.albums['Sequences/Tree'], gallery.albums['Sequences/Candle']],
+                gallery.albums['Sequences'].albums,
+            )
+
+        with self.subTest('Custom order via metadata'):
+            self.assertEqual(
+                [
+                    gallery.albums['Long menu'],
+                    gallery.albums['Nine levels deep'],
+                    gallery.albums['Poles'],
+                    gallery.albums['Sequences'],
+                    gallery.albums['Time-Lapse'],
+                ],
+                gallery.albums['.'].albums,
+            )
+
     @mock.patch('theme_153957.full_menu.signals')
     def test_register(self, mock_signals: mock.MagicMock) -> None:
         full_menu.register({})
 
-        mock_signals.gallery_initialized.connect.assert_called_once_with(full_menu.full_tree)
         mock_signals.album_initialized.connect.assert_any_call(full_menu.path_to_root)
         mock_signals.album_initialized.connect.assert_any_call(full_menu.path_from_root)

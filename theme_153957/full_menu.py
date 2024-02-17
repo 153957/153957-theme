@@ -1,37 +1,11 @@
-"""Add full menu to gallery
+"""Add full menu to gallery"""
 
-Limitations:
-- Currently only supports sorting albums by name in normal order (can not be reversed).
-
-"""
-
-import operator
 import os
 
 from typing import Any
 
 from sigal import signals
-from sigal.gallery import Album, Gallery
-
-
-def full_tree(gallery: Gallery) -> None:
-    """full menu tree"""
-
-    sorted_tree = sorted(gallery.albums.items(), key=operator.itemgetter(0))
-
-    gallery.full_tree = {}
-
-    for name, album in sorted_tree:
-        if name == '.':
-            continue
-        ancestors = album.path.split('/')[:-1]
-        current_ancestor = gallery.full_tree
-        for ancestor in ancestors:
-            current_ancestor = current_ancestor[ancestor]['subalbums']
-        current_ancestor[album.name] = {
-            'self': album,
-            'subalbums': {},
-        }
+from sigal.gallery import Album
 
 
 def path_to_root(album: Album) -> None:
@@ -53,6 +27,5 @@ def path_from_root(album: Album) -> None:
 
 
 def register(settings: dict[str, Any]) -> None:
-    signals.gallery_initialized.connect(full_tree)
     signals.album_initialized.connect(path_to_root)
     signals.album_initialized.connect(path_from_root)
