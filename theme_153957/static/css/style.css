@@ -213,6 +213,7 @@ body {
       'menu'
       'thumbnails'
       'canvas';
+    max-height: initial;
   }
 
   #menu {
