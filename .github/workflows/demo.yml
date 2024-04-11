@@ -25,7 +25,7 @@ jobs:
           root: demo/output/
           css: false
           log_level: INFO
-      - uses: peaceiris/actions-gh-pages@v3.9.3
+      - uses: peaceiris/actions-gh-pages@v4.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: demo/output
