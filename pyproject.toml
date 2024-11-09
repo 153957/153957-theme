@@ -7,7 +7,7 @@ name = '153957-theme'
 version = '5.0'
 description = 'Theme for sigal generated photo albums'
 readme = 'README.md'
-requires-python = '>=3.11'
+requires-python = '>=3.13'
 license = {file = 'LICENSE' }
 authors = [
     {name = 'Arne de Laat', email = 'arne@delaat.net'},
