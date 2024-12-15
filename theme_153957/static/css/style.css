@@ -189,8 +189,6 @@ body {
   right: 5px;
   z-index: 2;
   position: absolute;
-  background-image: url('../img/fullscreen.svg');
-  background-repeat: no-repeat;
   color: #010101;
   filter: drop-shadow(0 0 3px #eeeeee);
   opacity: 0.6;
