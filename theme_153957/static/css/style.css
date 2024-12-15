@@ -217,6 +217,10 @@ body {
   #menu {
     max-height: initial;
   }
+
+  #thumbnails img {
+    max-height: 55px;
+  }
 }
 
 @media (pointer: coarse) {
