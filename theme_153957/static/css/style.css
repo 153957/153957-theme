@@ -191,7 +191,7 @@ body {
   position: absolute;
   color: #010101;
   filter: drop-shadow(0 0 3px #eeeeee);
-  opacity: 0.6;
+  opacity: 0.8;
   display: block;
   cursor: pointer;
   width: 17px;
@@ -199,7 +199,7 @@ body {
 }
 
 #fullscreen:hover {
-  opacity: 0.9;
+  opacity: 1;
 }
 
 @media (max-width: 500px) {
