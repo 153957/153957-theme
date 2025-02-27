@@ -29,7 +29,7 @@ classifiers = [
     'Topic :: Text Processing :: Markup :: HTML',
 ]
 dependencies = [
-    'sigal==2.4',
+    'sigal==2.5',
 ]
 
 [project.optional-dependencies]
