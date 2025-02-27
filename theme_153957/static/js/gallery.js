@@ -103,8 +103,8 @@ function keyHandler(event) {
 
 // Do not add handlers if there is no content
 const canvas = document.getElementById('canvas')
-const first_entry = canvas.firstElementChild
-if (first_entry) {
+if (canvas) {
+    const first_entry = canvas.firstElementChild
     document.addEventListener('keydown', keyHandler)
     window.addEventListener('hashchange', highlightThumbnail)
     canvas.addEventListener('click', nextPrevious)
