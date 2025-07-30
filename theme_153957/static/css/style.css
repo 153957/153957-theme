@@ -98,7 +98,7 @@ body {
 
 #canvas img {
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   max-width: 100%;
   max-height: calc(100% - 13px);
   margin: 0 auto;
@@ -106,7 +106,7 @@ body {
 
 #canvas video {
   display: block;
-  object-fit: contain;
+  object-fit: cover;
   max-width: 100%;
   max-height: calc(100% - 13px);
   margin: 0 auto;

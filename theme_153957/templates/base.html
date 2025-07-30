@@ -54,8 +54,6 @@
                 <img
                   src="{{ media.dst_filename }}"
                   alt="{{ media.title or media.src_filename }}    {{ media_date }}"
-                  width="{{ media.size.width }}"
-                  height="{{ media.size.height }}"
                   loading="lazy"
                 >
               {%- elif media.type == "video" %}
