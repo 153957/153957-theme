@@ -57,7 +57,7 @@ body {
 }
 
 #thumbnails::-webkit-scrollbar-thumb {
-  background: #000000;
+  background-color: #000000;
 }
 
 #thumbnails img {
@@ -144,7 +144,7 @@ body {
 }
 
 #menu::-webkit-scrollbar-thumb {
-  background: #000000;
+  background-color: #000000;
 }
 
 #menu .title {
@@ -253,6 +253,30 @@ body {
   body {
     background-color: #111111;
     color: #eeeeee;
+  }
+
+  #thumbnails {
+    scrollbar-color: #ffffff #111111;
+  }
+
+  #thumbnails::-webkit-scrollbar {
+    background-color: #111111;
+  }
+
+  #thumbnails::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
+  }
+
+  #menu {
+    scrollbar-color: #ffffff #111111;
+  }
+
+  #menu::-webkit-scrollbar {
+    background-color: #111111;
+  }
+
+  #menu::-webkit-scrollbar-thumb {
+    background-color: #ffffff;
   }
 
   #menu a,
