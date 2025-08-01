@@ -59,7 +59,9 @@
                   alt=""
                   style="
                     aspect-ratio: auto {{ media.size.width }} / {{ media.size.height }};
-                    background: url('{{ media.thumbnail }}') center/cover no-repeat;
+                    {% if not settings.thumb_fit %}
+                      background: url('{{ media.thumbnail }}') center/cover no-repeat;
+                    {% endif %}
                   "
                   loading="lazy"
                 >
