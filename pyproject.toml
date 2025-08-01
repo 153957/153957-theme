@@ -1,6 +1,6 @@
 [build-system]
-requires = ['flit_core>=3.9']
-build-backend = 'flit_core.buildapi'
+requires = ["uv_build>=0.8.4"]
+build-backend = "uv_build"
 
 [project]
 name = '153957-theme'
@@ -8,7 +8,8 @@ version = '6.0'
 description = 'Theme for sigal generated photo albums'
 readme = 'README.md'
 requires-python = '>=3.13'
-license = {file = 'LICENSE' }
+license = 'MIT'
+license-files = ['LICENSE']
 authors = [
     {name = 'Arne de Laat', email = 'arne@delaat.net'},
 ]
@@ -36,15 +37,13 @@ dependencies = [
 dev = [
     'mypy==1.17.0',
 ]
-publish = [
-    'flit==3.12.0',
-]
 
 [project.urls]
 Repository = 'https://github.com/153957/153957-theme/'
 
-[tool.flit.module]
-name = 'theme_153957'
+[tool.uv.build-backend]
+module-name = 'theme_153957'
+module-root = ''
 
 [tool.mypy]
 ignore_missing_imports = true
