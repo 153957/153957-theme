@@ -39,6 +39,9 @@
             ><img
               src="{{ media.thumbnail }}"
               alt="{{ media.title or media.src_filename }}"
+              {% if media.type == "image" %}
+                style="aspect-ratio: auto {{ media.thumb_size.width }} / {{ media.thumb_size.height }};"
+              {% endif %}
             ></a>
           {%- endfor %}
         </div>
@@ -53,7 +56,11 @@
                 <span>{{ media.title or media.src_filename }}    {{ media_date }}</span>
                 <img
                   src="{{ media.dst_filename }}"
-                  alt="{{ media.title or media.src_filename }}    {{ media_date }}"
+                  alt=""
+                  style="
+                    aspect-ratio: auto {{ media.size.width }} / {{ media.size.height }};
+                    background: url('{{ media.thumbnail }}') center/cover no-repeat;
+                  "
                   loading="lazy"
                 >
               {%- elif media.type == "video" %}
