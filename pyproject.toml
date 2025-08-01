@@ -4,7 +4,7 @@ build-backend = "uv_build"
 
 [project]
 name = '153957-theme'
-version = '6.0'
+version = '7.0'
 description = 'Theme for sigal generated photo albums'
 readme = 'README.md'
 requires-python = '>=3.13'
