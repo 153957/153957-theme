@@ -69,7 +69,7 @@ function nextPrevious(event) {
         return false
     }
     const offset = event.offsetX - (event.target.offsetWidth / 2)
-    const deadzone = 20
+    const deadzone = event.target.offsetWidth / 10
     if (offset > deadzone) {
         rightHandler()
     }
