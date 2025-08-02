@@ -63,7 +63,9 @@
                       background: url('{{ media.thumbnail }}') center/cover no-repeat;
                     {% endif %}
                   "
-                  loading="lazy"
+                  {% if loop.index0 %}
+                    loading="lazy"
+                  {% endif %}
                 >
               {%- elif media.type == "video" %}
                 <span>{{ media.title or media.src_filename }}</span>
