@@ -17,13 +17,13 @@ def path_to_root(album: Album) -> None:
     else:
         path_to_root += '/'
 
-    album.path_to_root = path_to_root
+    album.path_to_root = path_to_root  # ty: ignore[unresolved-attribute]
 
 
 def path_from_root(album: Album) -> None:
     """url from gallery root"""
 
-    album.path_from_root = album.path
+    album.path_from_root = album.path  # ty: ignore[unresolved-attribute]
 
 
 def register(settings: dict[str, Any]) -> None:
