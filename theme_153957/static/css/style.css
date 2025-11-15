@@ -154,6 +154,7 @@ body {
 }
 
 #menu ul {
+  overflow: hidden;
   padding-left: 0;
   list-style-type: none;
 }
@@ -171,14 +172,17 @@ body {
 #menu a:visited {
   text-decoration: none;
   text-overflow: ellipsis;
-  display: block;
+  display: inline;
   color: #333333;
   overflow: hidden;
+  padding: 0px 5px;
+  border-radius: 4px;
 }
 
 #menu a:hover,
 #menu .current > a {
-  color: #3993C2;
+  color: #ffffff;
+  background-color: #000000;
 }
 
 
@@ -287,7 +291,8 @@ body {
 
   #menu a:hover,
   #menu .current > a {
-    color: #44aaff;
+    color: #000000;
+    background-color: #ffffff;
   }
 
   #canvas:fullscreen {
