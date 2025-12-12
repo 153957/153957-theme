@@ -154,7 +154,7 @@ body {
 }
 
 #menu ul {
-  overflow: hidden;
+  overflow-x: hidden;
   padding-left: 0;
   list-style-type: none;
 }
