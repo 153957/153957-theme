@@ -134,7 +134,6 @@ body {
   white-space: nowrap;
   scrollbar-width: thin;
   scrollbar-color: #000000 #ffffff;
-
 }
 
 #menu::-webkit-scrollbar {
@@ -168,15 +167,18 @@ body {
 }
 
 #menu a,
-#menu a:link,
-#menu a:visited {
+#menu a:link {
   text-decoration: none;
   text-overflow: ellipsis;
   display: inline;
-  color: #333333;
+  color: #111111;
   overflow: hidden;
   padding: 0px 5px;
   border-radius: 4px;
+}
+
+#menu a:visited {
+  color: #666666;
 }
 
 #menu a:hover,
@@ -184,7 +186,6 @@ body {
   color: #ffffff;
   background-color: #000000;
 }
-
 
 /* fullscreen icon */
 
@@ -284,9 +285,12 @@ body {
   }
 
   #menu a,
-  #menu a:link,
-  #menu a:visited {
+  #menu a:link {
     color: #eeeeee;
+  }
+
+  #menu a:visited {
+    color: #aaaaaa;
   }
 
   #menu a:hover,
