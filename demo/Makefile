@@ -1,7 +1,11 @@
-.PHONY: demo clean
+.PHONY: serve
+serve: demo
+	uv run sigal serve --browser
 
+.PHONY: demo
 demo: clean
-	sigal build
+	uv run sigal build
 
+.PHONY: clean
 clean:
 	rm -rf output

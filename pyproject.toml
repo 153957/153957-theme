@@ -33,9 +33,10 @@ dependencies = [
     'sigal==2.5',
 ]
 
-[project.optional-dependencies]
+[dependency-groups]
 dev = [
-    'ty==0.0.1a22',
+    'ruff==0.14.1',
+    'ty==0.0.1a34',
 ]
 
 [project.urls]
