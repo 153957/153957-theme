@@ -30,13 +30,13 @@ classifiers = [
     'Topic :: Text Processing :: Markup :: HTML',
 ]
 dependencies = [
-    'sigal==2.5',
+    'sigal==2.6.1',
 ]
 
 [dependency-groups]
 dev = [
-    'ruff==0.14.9',
-    'ty==0.0.1a34',
+    'ruff==0.15.1',
+    'ty==0.0.16',
 ]
 
 [project.urls]
