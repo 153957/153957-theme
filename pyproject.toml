@@ -40,7 +40,7 @@ dev = [
 ]
 
 [project.urls]
-Repository = 'https://github.com/153957/153957-theme/'
+Repository = 'https://codeberg.org/153957/153957-theme/'
 
 [tool.uv.build-backend]
 module-name = 'theme_153957'
@@ -48,7 +48,6 @@ module-root = ''
 
 [tool.ruff]
 line-length = 120
-target-version = 'py311'
 
 [tool.ruff.format]
 quote-style = 'single'  # Prefer single quotes, except for triple quotes strings
